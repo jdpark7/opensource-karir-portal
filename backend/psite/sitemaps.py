@@ -1,5 +1,5 @@
 """
-PeelJobs Django Sitemap Configuration
+InaWorks Django Sitemap Configuration
 Modern, dynamic sitemap generation using Django's sitemap framework.
 Only includes URLs for pages with actual content (jobs, skills, locations, etc.)
 """
@@ -10,15 +10,15 @@ from django.db.models import Count, Q
 from peeldb.models import JobPost, Skill, City, Company
 
 
-class PeelJobsSitemap(Sitemap):
+class InaWorksSitemap(Sitemap):
     """
-    Base sitemap class for PeelJobs
+    Base sitemap class for InaWorks
     Sets protocol to HTTPS for all sitemaps
     """
-    protocol = 'https'  # Use HTTPS for all URLs (peeljobs.com)
+    protocol = 'https'  # Use HTTPS for all URLs (inaworks.id)
 
 
-class JobPostSitemap(PeelJobsSitemap):
+class JobPostSitemap(InaWorksSitemap):
     """
     Sitemap for individual job postings - highest priority
     Only includes live jobs
@@ -44,7 +44,7 @@ class JobPostSitemap(PeelJobsSitemap):
         return f"/jobs/{slug_without_slash}"
 
 
-class SkillLocationSitemap(PeelJobsSitemap):
+class SkillLocationSitemap(InaWorksSitemap):
     """
     Sitemap for skill + location combinations (e.g., python-jobs-in-bangalore)
     OPTIMIZED: Only includes combinations that have active jobs
@@ -78,7 +78,7 @@ class SkillLocationSitemap(PeelJobsSitemap):
         return f"/{item['skill']}-jobs-in-{item['city']}/"
 
 
-class FresherSkillLocationSitemap(PeelJobsSitemap):
+class FresherSkillLocationSitemap(InaWorksSitemap):
     """
     Sitemap for fresher jobs by skill and location
     Only includes combinations with actual fresher jobs
@@ -108,7 +108,7 @@ class FresherSkillLocationSitemap(PeelJobsSitemap):
         return f"/{item['skill']}-fresher-jobs-in-{item['city']}/"
 
 
-class SkillSitemap(PeelJobsSitemap):
+class SkillSitemap(InaWorksSitemap):
     """
     Sitemap for skill-based job listings (e.g., /python-jobs/)
     Only includes skills that have live jobs
@@ -128,7 +128,7 @@ class SkillSitemap(PeelJobsSitemap):
         return f"/{obj.slug}-jobs/"
 
 
-class LocationSitemap(PeelJobsSitemap):
+class LocationSitemap(InaWorksSitemap):
     """
     Sitemap for location-based job listings (e.g., /jobs-in-bangalore/)
     Only includes locations with live jobs
@@ -148,7 +148,7 @@ class LocationSitemap(PeelJobsSitemap):
         return f"/jobs-in-{obj.slug}/"
 
 
-class CompanySitemap(PeelJobsSitemap):
+class CompanySitemap(InaWorksSitemap):
     """
     Sitemap for company job listings
     Only includes companies with active jobs
@@ -168,7 +168,7 @@ class CompanySitemap(PeelJobsSitemap):
         return f"/{obj.slug}-job-openings/"
 
 
-class StaticPagesSitemap(PeelJobsSitemap):
+class StaticPagesSitemap(InaWorksSitemap):
     """
     Sitemap for static/category pages
     These are always available regardless of job count

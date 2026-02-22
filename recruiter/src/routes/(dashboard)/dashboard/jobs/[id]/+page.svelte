@@ -36,8 +36,8 @@
 
 	function formatSalary(min: number, max: number, type: string): string {
 		if (!min && !max) return 'Not disclosed';
-		const minStr = min ? `₹${(min / 100000).toFixed(1)}L` : '';
-		const maxStr = max ? `₹${(max / 100000).toFixed(1)}L` : '';
+		const minStr = min ? `Rp ${(min / 1000000).toFixed(1)}M` : '';
+		const maxStr = max ? `Rp ${(max / 1000000).toFixed(1)}M` : '';
 		const range = minStr && maxStr ? `${minStr} - ${maxStr}` : minStr || maxStr;
 		return `${range} per ${type === 'Month' ? 'month' : 'year'}`;
 	}
@@ -59,7 +59,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.job.title} - Job Details - PeelJobs</title>
+	<title>{data.job.title} - Job Details - InaWorks</title>
 </svelte:head>
 
 <div class="space-y-6">

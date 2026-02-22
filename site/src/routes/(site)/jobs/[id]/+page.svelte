@@ -150,7 +150,7 @@
 </script>
 
 <svelte:head>
-  <title>{job.title} at {job.company_name} | PeelJobs</title>
+  <title>{job.title} at {job.company_name} | InaWorks</title>
   <meta
     name="description"
     content="{job.title} at {job.company_name} in {job.location_display}. {job.salary_display}, {job.experience_display}. {job.vacancies > 0 ? `${job.vacancies} openings.` : ''} Apply now!"

@@ -183,7 +183,7 @@ def inactive_jobs(request):
 
 def add_other_skills(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "InaWorks New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
 
     for skill in data:
@@ -215,7 +215,7 @@ def add_other_skills(job_post, data, user):
 
 def add_other_qualifications(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "InaWorks New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
     for qualification in data:
         for value in qualification.values():
@@ -243,7 +243,7 @@ def add_other_qualifications(job_post, data, user):
 
 def add_other_functional_area(job_post, data, user):
     temp = loader.get_template("recruiter/email/add_other_fields.html")
-    subject = "PeelJobs New JobPost"
+    subject = "InaWorks New JobPost"
     mto = [settings.DEFAULT_FROM_EMAIL]
 
     for functional_area in data:
@@ -459,7 +459,7 @@ def save_job_post(validate_post, request):
             user = User.objects.get(id=recruiter)
             c = {"job_post": validate_post, "user": user}
             t = loader.get_template("email/assign_jobpost.html")
-            subject = "PeelJobs New JobPost"
+            subject = "InaWorks New JobPost"
             rendered = t.render(c)
             mto = [user.email]
             send_email.delay(mto, subject, rendered)
@@ -589,7 +589,7 @@ def new_job(request, job_type):
         adding_other_fields_data(request.POST, validate_post, request.user)
         c = {"job_post": validate_post, "user": request.user}
         t = loader.get_template("email/jobpost_notification.html")
-        subject = "PeelJobs New JobPost"
+        subject = "InaWorks New JobPost"
         rendered = t.render(c)
         mto = settings.SUPPORT_EMAILS
 

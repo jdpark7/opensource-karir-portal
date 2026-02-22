@@ -277,7 +277,7 @@
 </script>
 
 <svelte:head>
-  <title>Top Companies Hiring in India - PeelJobs</title>
+  <title>Top Companies Hiring in India - InaWorks</title>
   <meta name="description" content="Discover top companies hiring in India. Browse {totalCompanies.toLocaleString()} companies by industry, location, and company type." />
 </svelte:head>
 

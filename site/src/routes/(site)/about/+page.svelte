@@ -90,22 +90,22 @@
 </script>
 
 <svelte:head>
-	<title>About Us - PeelJobs | Free Job Portal Democratizing Hiring</title>
+	<title>About Us - InaWorks.id | Free Job Portal Democratizing Hiring</title>
 	<meta
 		name="description"
-		content="PeelJobs is a free job portal connecting talent with opportunity. Learn about our mission to democratize hiring, making exceptional recruitment accessible to businesses of all sizes without financial barriers."
+		content="InaWorks.id is a free job portal connecting talent with opportunity. Learn about our mission to democratize hiring, making exceptional recruitment accessible to businesses of all sizes without financial barriers."
 	/>
-	<link rel="canonical" href="https://peeljobs.com/about/" />
+	<link rel="canonical" href="https://inaworks.id/about/" />
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="About PeelJobs - Democratizing Hiring, One Connection at a Time" />
-	<meta property="og:description" content="Discover how PeelJobs is transforming recruitment with our free, accessible platform that empowers companies and job seekers alike." />
+	<meta property="og:title" content="About InaWorks.id - Democratizing Hiring, One Connection at a Time" />
+	<meta property="og:description" content="Discover how InaWorks.id is transforming recruitment with our free, accessible platform that empowers companies and job seekers alike." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://peeljobs.com/about/" />
+	<meta property="og:url" content="https://inaworks.id/about/" />
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="About PeelJobs - Free Job Portal" />
+	<meta name="twitter:title" content="About InaWorks.id - Free Job Portal" />
 	<meta name="twitter:description" content="Learn about our mission to democratize hiring for all." />
 </svelte:head>
 
@@ -231,7 +231,7 @@
 		<div class="text-center mb-10 lg:mb-12">
 			<h2 class="text-2xl lg:text-3xl font-semibold text-black tracking-tight mb-4">Our Core Values</h2>
 			<p class="text-base lg:text-lg text-muted max-w-3xl mx-auto">
-				These fundamental principles guide everything we do at PeelJobs
+				These fundamental principles guide everything we do at InaWorks.id
 			</p>
 		</div>
 
@@ -256,7 +256,7 @@
 <section class="py-16 lg:py-24 bg-white">
 	<div class="max-w-7xl mx-auto px-4 lg:px-8">
 		<div class="text-center mb-10 lg:mb-12">
-			<h2 class="text-2xl lg:text-3xl font-semibold text-black tracking-tight mb-4">Why Choose PeelJobs?</h2>
+			<h2 class="text-2xl lg:text-3xl font-semibold text-black tracking-tight mb-4">Why Choose InaWorks.id?</h2>
 			<p class="text-base lg:text-lg text-muted max-w-3xl mx-auto">
 				We're more than just a job board—we're your partner in building successful careers and teams
 			</p>
@@ -358,7 +358,7 @@
 	<div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
 		<div class="max-w-3xl mx-auto">
 			<h2 class="text-2xl lg:text-3xl font-semibold tracking-tight mb-4">
-				Ready to Experience the PeelJobs Difference?
+				Ready to Experience the InaWorks.id Difference?
 			</h2>
 			<p class="text-base lg:text-lg text-gray-300 mb-8 lg:mb-10">
 				Join thousands of job seekers and companies who have discovered a better way to connect.

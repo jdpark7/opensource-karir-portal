@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="InaWorks Icon">
+  <title>InaWorks Icon</title>
+
+  <g fill="none" stroke="#38BDF8" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Open arc rotated 180° (gap at top) -->
+    <path d="M 356 122 A 180 180 0 1 1 156 122" />
+
+    <!-- Head -->
+    <circle cx="256" cy="175" r="44" />
+
+    <!-- Body -->
+    <path d="M 212 375 V 290
+             C 212 250 238 225 256 220
+             C 274 225 300 250 300 290
+             V 375" />
+
+  </g>
+</svg>

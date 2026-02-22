@@ -45,7 +45,7 @@ from .serializers import ContactSerializer, ContactResponseSerializer
                 "phone": 9876543210,
                 "category": "general",
                 "subject": "Question about job postings",
-                "comment": "I would like to know more about posting jobs on PeelJobs.",
+                "comment": "I would like to know more about posting jobs on InaWorks.",
             },
             request_only=True,
         ),
@@ -121,8 +121,8 @@ def submit_contact_form(request):
 
     # Send email notification to support team
     try:
-        subject = f"New Contact Inquiry: {contact.get_enquery_type_display()} | PeelJobs"
-        support_emails = getattr(settings, 'SUPPORT_EMAILS', ['peeljobs@micropyramid.com'])
+        subject = f"New Contact Inquiry: {contact.get_enquery_type_display()} | InaWorks"
+        support_emails = getattr(settings, 'SUPPORT_EMAILS', ['inaworks@micropyramid.com'])
 
         # Email to support team with Reply-To set to user's email
         template = loader.get_template("email/contactus_email.html")
@@ -130,7 +130,7 @@ def submit_contact_form(request):
         send_email.delay(support_emails, subject, rendered, reply_to=contact.email)
 
         # Confirmation email to user (no reply-to needed as it goes to the user)
-        user_subject = "Thank you for contacting PeelJobs"
+        user_subject = "Thank you for contacting InaWorks"
         user_template = loader.get_template("email/user_contactus.html")
         user_rendered = user_template.render(email_context)
         send_email.delay([contact.email], user_subject, user_rendered)

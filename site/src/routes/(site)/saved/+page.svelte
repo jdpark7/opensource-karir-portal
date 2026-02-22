@@ -93,7 +93,7 @@
 </script>
 
 <svelte:head>
-	<title>Saved Jobs - PeelJobs</title>
+	<title>Saved Jobs - InaWorks</title>
 	<meta name="description" content="View all your saved jobs in one place" />
 </svelte:head>
 

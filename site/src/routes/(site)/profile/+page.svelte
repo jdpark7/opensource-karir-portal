@@ -173,7 +173,7 @@
 </script>
 
 <svelte:head>
-	<title>Personal Information - Profile - PeelJobs</title>
+	<title>Personal Information - Profile - InaWorks</title>
 	<meta name="description" content="Manage your personal information and preferences" />
 </svelte:head>
 

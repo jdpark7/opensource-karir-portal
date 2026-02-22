@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             margin: 0 auto;
             padding: 20px;
         }
+
         .header {
             background-color: #059669;
             color: white;
@@ -19,11 +21,13 @@
             text-align: center;
             border-radius: 8px 8px 0 0;
         }
+
         .content {
             background-color: #f9fafb;
             padding: 40px 30px;
             border-radius: 0 0 8px 8px;
         }
+
         .button {
             display: inline-block;
             padding: 14px 28px;
@@ -34,12 +38,14 @@
             margin: 20px 0;
             font-weight: 600;
         }
+
         .footer {
             text-align: center;
             margin-top: 30px;
             color: #6b7280;
             font-size: 14px;
         }
+
         .info-box {
             background-color: #e0f2fe;
             border-left: 4px solid #0284c7;
@@ -48,23 +54,27 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1 style="margin: 0;">Team Invitation</h1>
     </div>
     <div class="content">
         <h2>You're Invited!</h2>
-        <p><strong>{{ invited_by.first_name }} {{ invited_by.last_name }}</strong> has invited you to join the team at <strong>{{ company.name }}</strong> on PeelJobs.</p>
+        <p><strong>{{ invited_by.first_name }} {{ invited_by.last_name }}</strong> has invited you to join the team at
+            <strong>{{ company.name }}</strong> on InaWorks.</p>
 
         <div class="info-box">
             <p style="margin: 5px 0;"><strong>Company:</strong> {{ company.name }}</p>
             <p style="margin: 5px 0;"><strong>Role:</strong> {{ role_title }}</p>
-            <p style="margin: 5px 0;"><strong>Invited by:</strong> {{ invited_by.first_name }} {{ invited_by.last_name }} ({{ invited_by.email }})</p>
+            <p style="margin: 5px 0;"><strong>Invited by:</strong> {{ invited_by.first_name }} {{ invited_by.last_name
+                }} ({{ invited_by.email }})</p>
         </div>
 
         {% if message %}
         <p><strong>Personal message:</strong></p>
-        <p style="font-style: italic; background-color: #fff; padding: 15px; border-left: 3px solid #059669;">{{ message }}</p>
+        <p style="font-style: italic; background-color: #fff; padding: 15px; border-left: 3px solid #059669;">{{ message
+            }}</p>
         {% endif %}
 
         <p>Join the team to:</p>
@@ -82,9 +92,10 @@
         <p style="text-align: center; color: #6b7280; font-size: 14px;">This invitation will expire in 7 days</p>
 
         <div class="footer">
-            <p>&copy; {{ current_year }} PeelJobs. All rights reserved.</p>
-            <p>Need help? Contact us at support@peeljobs.com</p>
+            <p>&copy; {{ current_year }} InaWorks. All rights reserved.</p>
+            <p>Need help? Contact us at support@inaworks.com</p>
         </div>
     </div>
 </body>
+
 </html>

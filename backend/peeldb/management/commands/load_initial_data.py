@@ -14,14 +14,14 @@ class Command(BaseCommand):
         signal_processor.teardown()
 
         try:
-            call_command("loaddata", "peeldb/fixtures/countries.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/states.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/cities.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/skills.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/industries.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/qualification.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/functionalarea.json", verbosity=0)
-            call_command("loaddata", "peeldb/fixtures/languages.json", verbosity=0)
+            call_command("loaddata", "countries", verbosity=0)
+            call_command("loaddata", "states", verbosity=0)
+            call_command("loaddata", "cities", verbosity=0)
+            call_command("loaddata", "skills", verbosity=0)
+            call_command("loaddata", "industries", verbosity=0)
+            call_command("loaddata", "qualification", verbosity=0)
+            call_command("loaddata", "functionalarea", verbosity=0)
+            call_command("loaddata", "languages", verbosity=0)
             self.stdout.write(self.style.SUCCESS("Successfully loaded initial data"))
         finally:
             signal_processor.setup()

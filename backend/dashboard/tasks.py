@@ -127,7 +127,7 @@ def job_alerts_to_users():
                 user_posts = user_posts.order_by(job_order)
             c = {"jobposts": user_posts.distinct()[:10], "user": user}
             t = loader.get_template("email/job_alert.html")
-            subject = "Top Matching Jobs for your Profile - PeelJobs"
+            subject = "Top Matching Jobs for your Profile - InaWorks"
             rendered = t.render(c)
             mto = [user.email]
             send_email.delay(mto, subject, rendered)
@@ -163,7 +163,7 @@ def job_alerts_to_subscribers():
                 "sub_skills": skills,
             }
             t = loader.get_template("email/job_alert.html")
-            subject = "Top Matching jobs for your subscription - PeelJobs"
+            subject = "Top Matching jobs for your subscription - InaWorks"
             rendered = t.render(c)
             mto = [sub.email]
             send_email.delay(mto, subject, rendered)
@@ -221,7 +221,7 @@ def jobpost_published():
        
         c = {"job_post": job, "user": job.user}
         t = loader.get_template("email/jobpost.html")
-        subject = "PeelJobs JobPost Status"
+        subject = "InaWorks JobPost Status"
         mto = [settings.DEFAULT_FROM_EMAIL, job.user.email]
         rendered = t.render(c)
         send_email.delay(mto, subject, rendered)
@@ -310,7 +310,7 @@ def get_conditions(user):
 #         # sending an email
 #         c = {"job_posts": jobposts, "user": user}
 #         t = loader.get_template("email/applicant.html")
-#         subject = "Update Your Profile To Get Top Matching Jobs - PeelJobs"
+#         subject = "Update Your Profile To Get Top Matching Jobs - InaWorks"
 #         rendered = t.render(c)
 #         mto = [user.email]
 #         user_active = True if user.is_active else False
@@ -672,7 +672,7 @@ def daily_report():
 
     for each in users:
         temp = loader.get_template("email/daily_report.html")
-        subject = "Peeljobs Daily Report For " + formatted_date
+        subject = "Inaworks Daily Report For " + formatted_date
         mto = [each]
         rendered = temp.render(data)
         send_email.delay(mto, subject, rendered)
@@ -702,13 +702,13 @@ def applicants_profile_update_notifications():
                 job_posts = JobPost.objects.filter(status="Live")[:15]
             temp = loader.get_template("email/user_profile_alert.html")
             if days == 4:
-                subject = "Recruiters are unable to contact you - Peeljobs"
+                subject = "Recruiters are unable to contact you - Inaworks"
             if days == 6:
                 subject = (
-                    "Your Peeljobs account is missing Critical Information - Peeljobs"
+                    "Your Inaworks account is missing Critical Information - Inaworks"
                 )
             else:
-                subject = "Update Your Profile To Get Top Matching Jobs - Peeljobs"
+                subject = "Update Your Profile To Get Top Matching Jobs - Inaworks"
             rendered = temp.render({"user": each, "job_posts": job_posts})
             mto = [each.email]
             send_email.delay(mto, subject, rendered)
@@ -725,7 +725,7 @@ def applicants_profile_update_notifications():
     #     days = (datetime.today() - user.date_joined).days
     #     if days == 2 or days % 10 == 0:
     #         temp = loader.get_template("email/account_inactive.html")
-    #         subject = "Update Your Profile - Peeljobs"
+    #         subject = "Update Your Profile - Inaworks"
     #         rendered = temp.render({"user": user})
     #         mto = [user.email]
     #         send_email.delay(mto, subject, rendered)
@@ -741,7 +741,7 @@ def applicants_profile_update_notifications():
     )
     for user in users:
         temp = loader.get_template("email/user_profile_alert.html")
-        subject = "Upload your Resume/cv - Peeljobs"
+        subject = "Upload your Resume/cv - Inaworks"
         rendered = temp.render({"user": user, "resume_update": True})
         mto = [user.email]
         send_email.delay(mto, subject, rendered)
@@ -760,7 +760,7 @@ def recruiter_profile_update_notifications():
     )
     for recruiter in recruiters:
         temp = loader.get_template("email/user_profile_alert.html")
-        subject = "Update Your Profile To Get More Applicants - Peeljobs"
+        subject = "Update Your Profile To Get More Applicants - Inaworks"
         mto = [recruiter.email]
         rendered = temp.render({"user": recruiter, "recruiter": True})
         send_email.delay(mto, subject, rendered)
@@ -776,7 +776,7 @@ def applicants_all_job_notifications():
     for each in today_applicants:
         job_posts = each.related_jobs()
         temp = loader.get_template("email/applicant.html")
-        subject = "Top matching jobs for you - Peeljobs"
+        subject = "Top matching jobs for you - Inaworks"
         mto = [each.email]
         rendered = temp.render({"job_posts": job_posts[:10], "user": each})
         send_email.delay(mto, subject, rendered)
@@ -802,7 +802,7 @@ def applicants_job_notifications():
         if len(job_posts) < 10:
             job_posts = list(job_posts) + list(JobPost.objects.filter(status="Live"))
         temp = loader.get_template("email/applicant.html")
-        subject = "Top matching jobs for you - Peeljobs"
+        subject = "Top matching jobs for you - Inaworks"
         mto = [user.email]
         rendered = temp.render({"jobposts": job_posts[:10], "user": user})
         send_email.delay(mto, subject, rendered)
@@ -820,7 +820,7 @@ def applicants_job_notifications():
 #     )
 #     for user in users:
 #         temp = loader.get_template("email/user_profile_alert.html")
-#         subject = "Update Your Profile To Get Top Matching Jobs - PeelJobs"
+#         subject = "Update Your Profile To Get Top Matching Jobs - InaWorks"
 #         mto = [user.email]
 #         rendered = temp.render({"user": user, "inactive_user": True})
 #         user_active = True if user.is_active else False
@@ -836,7 +836,7 @@ def applicants_job_notifications():
 #     )
 #     for recruiter in recruiters:
 #         temp = loader.get_template("email/user_profile_alert.html")
-#         subject = "Update Your Profile To Post Unlimited Jobs - PeelJobs"
+#         subject = "Update Your Profile To Post Unlimited Jobs - InaWorks"
 #         mto = [recruiter.email]
 #         rendered = temp.render(
 #             {"user": recruiter, "recruiter": True, "inactive_user": True}
@@ -852,7 +852,7 @@ def applicants_job_notifications():
 #         temp = loader.get_template("email/birthdays.html")
 #         subject = (
 #             "=?UTF-8?Q?=F0=9F=8E=82?="
-#             + " Birthday Wishes - Peeljobs "
+#             + " Birthday Wishes - Inaworks "
 #             + "=?UTF-8?Q?=F0=9F=8E=82?="
 #         )
 #         rendered = temp.render({"user": user})
@@ -875,7 +875,7 @@ def sitemap_generation():
 
     xml_cont = (
         xml_cont
-        + "<url><loc>https://peeljobs.com/</loc>"
+        + "<url><loc>https://inaworks.id/</loc>"
         + "<changefreq>always</changefreq><priority>1.0</priority></url>"
     )
 
@@ -886,7 +886,7 @@ def sitemap_generation():
     jobs = JobPost.objects.filter(status="Live")
     for job in jobs:
         jobs_xml_cont = (
-            jobs_xml_cont + "<url><loc>https://peeljobs.com" + job.slug + end_url
+            jobs_xml_cont + "<url><loc>https://inaworks.id" + job.slug + end_url
         )
 
     jobs_xml_cont = jobs_xml_cont + "</urlset>"
@@ -908,14 +908,14 @@ def sitemap_generation():
         if jobs > 0:
             skills_xml_cont = (
                 skills_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://inaworks.id"
                 + skill.get_job_url()
                 + end_url
             )
         else:
             no_job_skills_xml_cont = (
                 no_job_skills_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://inaworks.id"
                 + skill.get_job_url()
                 + end_url
             )
@@ -938,14 +938,14 @@ def sitemap_generation():
         if jobs > 0:
             locations_xml_cont = (
                 locations_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://inaworks.id"
                 + location.get_job_url()
                 + end_url
             )
         else:
             no_job_locations_xml_cont = (
                 no_job_locations_xml_cont
-                + "<url><loc>https://peeljobs.com"
+                + "<url><loc>https://inaworks.id"
                 + location.get_job_url()
                 + end_url
             )
@@ -967,7 +967,7 @@ def sitemap_generation():
     for industry in industries:
         industries_xml_cont = (
             industries_xml_cont
-            + "<url><loc>https://peeljobs.com"
+            + "<url><loc>https://inaworks.id"
             + industry.get_job_url()
             + end_url
         )
@@ -989,7 +989,7 @@ def sitemap_generation():
     for internship in internships:
         internship_xml_cont = (
             internship_xml_cont
-            + "<url><loc>https://peeljobs.com/internship-jobs-in-"
+            + "<url><loc>https://inaworks.id/internship-jobs-in-"
             + internship.slug
             + "/"
             + end_url
@@ -1010,7 +1010,7 @@ def sitemap_generation():
         if jobs > 0:
             skills_walkin_xml_cont = (
                 skills_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + str(skill.slug)
                 + "-walkins/"
                 + end_url
@@ -1018,7 +1018,7 @@ def sitemap_generation():
         else:
             no_job_skills_walkin_xml_cont = (
                 no_job_skills_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + str(skill.slug)
                 + "-walkins/"
                 + end_url
@@ -1053,7 +1053,7 @@ def sitemap_generation():
                 if jobs > 0:
                     skills_locations_xml_cont = (
                         skills_locations_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://inaworks.id/"
                         + str(skill.slug)
                         + "-jobs-in-"
                         + str(location.slug)
@@ -1063,7 +1063,7 @@ def sitemap_generation():
                 else:
                     no_job_skills_locations_xml_cont = (
                         no_job_skills_locations_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://inaworks.id/"
                         + str(skill.slug)
                         + "-jobs-in-"
                         + str(location.slug)
@@ -1073,7 +1073,7 @@ def sitemap_generation():
                 if walkins > 0:
                     skills_locations_walkins_xml_cont = (
                         skills_locations_walkins_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://inaworks.id/"
                         + str(skill.slug)
                         + "-walkins-in-"
                         + str(location.slug)
@@ -1083,7 +1083,7 @@ def sitemap_generation():
                 else:
                     no_job_skills_locations_walkins_xml_cont = (
                         no_job_skills_locations_walkins_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://inaworks.id/"
                         + str(skill.slug)
                         + "-walkins-in-"
                         + str(location.slug)
@@ -1135,7 +1135,7 @@ def sitemap_generation():
                 if jobs > 0:
                     skills_location_fresher_xml_cont = (
                         skills_location_fresher_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://inaworks.id/"
                         + str(skill.slug)
                         + "-fresher-jobs-in-"
                         + str(location.slug)
@@ -1145,7 +1145,7 @@ def sitemap_generation():
                 else:
                     no_job_skills_location_fresher_xml_cont = (
                         no_job_skills_location_fresher_xml_cont
-                        + "<url><loc>https://peeljobs.com/"
+                        + "<url><loc>https://inaworks.id/"
                         + str(skill.slug)
                         + "-fresher-jobs-in-"
                         + str(location.slug)
@@ -1189,7 +1189,7 @@ def sitemap_generation():
         if walkins > 0:
             locations_walkin_xml_cont = (
                 locations_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + "walkins-in-"
                 + str(each.slug)
                 + "/"
@@ -1198,7 +1198,7 @@ def sitemap_generation():
         else:
             no_job_locations_walkin_xml_cont = (
                 no_job_locations_walkin_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + "walkins-in-"
                 + str(each.slug)
                 + "/"
@@ -1207,7 +1207,7 @@ def sitemap_generation():
         if fresher_jobs > 0:
             locations_fresher_jobs_xml_cont = (
                 locations_fresher_jobs_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + "fresher-jobs-in-"
                 + str(each.slug)
                 + "/"
@@ -1216,7 +1216,7 @@ def sitemap_generation():
         else:
             no_job_locations_fresher_jobs_xml_cont = (
                 no_job_locations_fresher_jobs_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + "fresher-jobs-in-"
                 + str(each.slug)
                 + "/"
@@ -1252,7 +1252,7 @@ def sitemap_generation():
     for state in states:
         states_jobs_xml_count = (
             states_jobs_xml_count
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://inaworks.id/"
             + "jobs-in-"
             + str(state.slug)
             + "/"
@@ -1260,7 +1260,7 @@ def sitemap_generation():
         )
         states_walkins_xml_count = (
             states_walkins_xml_count
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://inaworks.id/"
             + "walkins-in-"
             + str(state.slug)
             + "/"
@@ -1268,7 +1268,7 @@ def sitemap_generation():
         )
         states_fresher_jobs_xml_count = (
             states_fresher_jobs_xml_count
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://inaworks.id/"
             + "fresher-jobs-in-"
             + str(state.slug)
             + "/"
@@ -1293,7 +1293,7 @@ def sitemap_generation():
         if jobs > 0:
             skills_fresher_xml_cont = (
                 skills_fresher_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + str(skill.slug)
                 + "-fresher-jobs/"
                 + end_url
@@ -1301,7 +1301,7 @@ def sitemap_generation():
         else:
             no_job_skills_fresher_xml_cont = (
                 no_job_skills_fresher_xml_cont
-                + "<url><loc>https://peeljobs.com/"
+                + "<url><loc>https://inaworks.id/"
                 + str(skill.slug)
                 + "-fresher-jobs/"
                 + end_url
@@ -1323,7 +1323,7 @@ def sitemap_generation():
     for edu in educations:
         educations_xml_cont = (
             educations_xml_cont
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://inaworks.id/"
             + str(edu.slug)
             + "-jobs/"
             + end_url
@@ -1342,7 +1342,7 @@ def sitemap_generation():
     for recruiter in recruiters:
         recruiters_xml_cont = (
             recruiters_xml_cont
-            + "<url><loc>https://peeljobs.com/recruiters/"
+            + "<url><loc>https://inaworks.id/recruiters/"
             + str(recruiter.username)
             + "/"
             + end_url
@@ -1362,7 +1362,7 @@ def sitemap_generation():
     for company in companies:
         companies_xml_cont = (
             companies_xml_cont
-            + "<url><loc>https://peeljobs.com/"
+            + "<url><loc>https://inaworks.id/"
             + str(company.slug)
             + "-job-openings/"
             + end_url
@@ -1383,59 +1383,59 @@ def sitemap_generation():
     no_pages = int(math.ceil(float(len(jobposts)) / items_per_page))
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/sitemap/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/sitemap/" + end_url
     )
 
     for each in range(1, no_pages):
         pages_xml_cont = (
             pages_xml_cont
-            + "<url><loc>https://peeljobs.com/sitemap/"
+            + "<url><loc>https://inaworks.id/sitemap/"
             + str(each)
             + "/"
             + end_url
         )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/post-job/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/post-job/" + end_url
     )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/internship-jobs/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/internship-jobs/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/government-jobs/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/government-jobs/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/full-time-jobs/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/full-time-jobs/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/walkin-jobs/" + end_url
-    )
-
-    pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/alert/list/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/walkin-jobs/" + end_url
     )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-location/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/alert/list/" + end_url
+    )
+
+    pages_xml_cont = (
+        pages_xml_cont + "<url><loc>https://inaworks.id/jobs-by-location/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-skill/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/jobs-by-skill/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-industry/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/jobs-by-industry/" + end_url
     )
 
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/calendar/"
+        + "<url><loc>https://inaworks.id/calendar/"
         + str(datetime.now().year)
         + "/"
         + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/calendar/"
+        + "<url><loc>https://inaworks.id/calendar/"
         + str(datetime.now().year)
         + "/month/"
         + str(datetime.now().month)
@@ -1444,51 +1444,51 @@ def sitemap_generation():
     )
 
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/about-us/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/page/about-us/" + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/page/terms-conditions/"
+        + "<url><loc>https://inaworks.id/page/terms-conditions/"
         + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/privacy-policy/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/page/privacy-policy/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/contact-us/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/page/contact-us/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/faq/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/page/faq/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/page/recruiter-faq/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/page/recruiter-faq/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/recruiters/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/recruiters/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/companies/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/companies/" + end_url
     )
-    pages_xml_cont = pages_xml_cont + "<url><loc>https://peeljobs.com/jobs/" + end_url
+    pages_xml_cont = pages_xml_cont + "<url><loc>https://inaworks.id/jobs/" + end_url
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/fresher-jobs-by-skills/"
+        + "<url><loc>https://inaworks.id/fresher-jobs-by-skills/"
         + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/walkin-jobs-by-skills/"
+        + "<url><loc>https://inaworks.id/walkin-jobs-by-skills/"
         + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/walkins-by-location/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/walkins-by-location/" + end_url
     )
     pages_xml_cont = (
-        pages_xml_cont + "<url><loc>https://peeljobs.com/jobs-by-degree/" + end_url
+        pages_xml_cont + "<url><loc>https://inaworks.id/jobs-by-degree/" + end_url
     )
     pages_xml_cont = (
         pages_xml_cont
-        + "<url><loc>https://peeljobs.com/fresher-jobs-by-location/"
+        + "<url><loc>https://inaworks.id/fresher-jobs-by-location/"
         + end_url
     )
 
@@ -1506,13 +1506,13 @@ def sitemap_generation():
 
     xml_cont = (
         xml_cont
-        + "<url><loc>https://peeljobs.com/</loc>"
+        + "<url><loc>https://inaworks.id/</loc>"
         + "<changefreq>always</changefreq><priority>1.0</priority></url>"
     )
     for d in os.listdir(directory):
         if d.endswith(".xml") and not d.endswith("sitemap.xml"):
             xml_cont = (
-                xml_cont + "<url><loc>https://peeljobs.com/sitemap/" + str(d) + end_url
+                xml_cont + "<url><loc>https://inaworks.id/sitemap/" + str(d) + end_url
             )
 
     xml_cont = xml_cont + "</urlset>"

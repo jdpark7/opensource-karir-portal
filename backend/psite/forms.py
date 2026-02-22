@@ -142,10 +142,11 @@ class AuthenticationForm(forms.Form):
         username = self.cleaned_data.get("email")
         user = User.objects.filter(email=username).first()
         if user:
-            if not user.is_jobseeker:
+            if not user.is_jobseeker and not user.is_superuser and not user.is_staff:
+                user_type_display = user.get_user_type_display() if hasattr(user, 'get_user_type_display') and user.get_user_type_display() else "another role"
                 raise forms.ValidationError(
                     "You have registered as "
-                    + user.get_user_type_display()
+                    + user_type_display
                     + " and you can't login as Job Seeker"
                 )
             return username

@@ -43,6 +43,9 @@ class Industry(models.Model):
     meta_title = models.TextField(default="")
     meta_description = models.TextField(default="")
     page_content = models.TextField(default="")
+    
+    def __str__(self):
+        return self.name
 
     def get_job_url(self):
         job_url = "/" + str(self.slug) + "-industry-jobs/"
@@ -218,14 +221,14 @@ class City(models.Model):
     state = models.ForeignKey(State, related_name="state", on_delete=models.PROTECT)
     status = models.CharField(choices=STATUS_TYPES, max_length=10, default="Enabled")
     slug = models.SlugField(max_length=500)
-    internship_text = models.CharField(max_length=1000)
-    meta_title = models.TextField(default="")
-    meta_description = models.TextField(default="")
-    internship_meta_title = models.TextField(default="")
-    internship_meta_description = models.TextField(default="")
-    page_content = models.TextField(default="")
-    internship_content = models.TextField(default="")
-    meta = JSONField(null=True)
+    internship_text = models.CharField(max_length=1000, blank=True, null=True)
+    meta_title = models.TextField(default="", blank=True, null=True)
+    meta_description = models.TextField(default="", blank=True, null=True)
+    internship_meta_title = models.TextField(default="", blank=True, null=True)
+    internship_meta_description = models.TextField(default="", blank=True, null=True)
+    page_content = models.TextField(default="", blank=True, null=True)
+    internship_content = models.TextField(default="", blank=True, null=True)
+    meta = JSONField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -368,7 +371,7 @@ class Company(models.Model):
     def get_logo_url(self):
         if self.profile_pic:
             return str(self.profile_pic)
-        return "https://cdn.peeljobs.com/static/company_logo.png"
+        return "https://cdn.inaworks.id/static/company_logo.svg"
 
     def get_description(self):
         from bs4 import BeautifulSoup
@@ -398,7 +401,7 @@ class Company(models.Model):
     def get_logo_url(self):
         if self.profile_pic:
             return str(self.profile_pic)
-        return "https://cdn.peeljobs.com/static/company_logo.png"
+        return "https://cdn.inaworks.id/static/company_logo.svg"
 
 
 class EducationInstitue(models.Model):
@@ -1622,7 +1625,7 @@ class JobPost(models.Model):
 POST = (
     ("Page", "Page"),
     ("Group", "Group"),
-    ("PeelJobs", "PeelJobs"),
+    ("InaWorks", "InaWorks"),
 )
 
 POST_STATUS = (

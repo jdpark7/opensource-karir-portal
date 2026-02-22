@@ -40,7 +40,7 @@ class CompanyListSerializer(serializers.ModelSerializer):
                 except Exception:
                     pass
         # Return default logo
-        return 'https://cdn.peeljobs.com/static/company_logo.png'
+        return 'https://cdn.inaworks.id/static/company_logo.png'
 
     def get_job_count(self, obj):
         """Return count of live job posts for this company"""
@@ -130,7 +130,7 @@ class CompanyDetailSerializer(serializers.ModelSerializer):
                     return request.build_absolute_uri(obj.profile_pic.url)
                 except Exception:
                     pass
-        return 'https://cdn.peeljobs.com/static/company_logo.png'
+        return 'https://cdn.inaworks.id/static/company_logo.png'
 
     def get_job_count(self, obj):
         """Return count of live job posts"""

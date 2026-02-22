@@ -338,7 +338,7 @@
 </script>
 
 <svelte:head>
-	<title>Post New Job - PeelJobs Recruiter</title>
+	<title>Post New Job - InaWorks Recruiter</title>
 </svelte:head>
 
 <div class="max-w-5xl mx-auto space-y-6">
@@ -966,7 +966,7 @@
 										class="w-4 h-4 text-primary"
 									/>
 									<div>
-										<div class="text-sm font-medium text-black">Apply on PeelJobs Portal</div>
+										<div class="text-sm font-medium text-black">Apply on InaWorks Portal</div>
 										<div class="text-xs text-muted">Candidates apply through our platform</div>
 									</div>
 								</label>

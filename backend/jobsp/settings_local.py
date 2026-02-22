@@ -2,6 +2,7 @@
 # This file contains settings that should only be used in local development
 # and not on production servers.
 
+import os
 from .settings import *
 
 # Development-specific installed apps
@@ -58,7 +59,7 @@ INTERNAL_IPS = ("127.0.0.1", "localhost")
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'peeljobs_local',
+#         'NAME': 'inaworks_local',
 #         'USER': 'your_db_user',
 #         'PASSWORD': 'your_db_password',
 #         'HOST': 'localhost',
@@ -135,5 +136,19 @@ COMPRESS_OFFLINE = False
 
 # Additional development tools settings
 # DJANGO_EXTENSIONS = True  # if using django-extensions
+
+# Use local sass from node_modules
+# Use local sass from node_modules
+SASS_BIN = os.path.join(os.path.dirname(BASE_DIR), "node_modules", ".bin", "sass")
+
+COMPRESS_PRECOMPILERS = (
+    ("text/less", "lessc {infile} {outfile}"),
+    ("text/x-sass", f"{SASS_BIN} {{infile}} {{outfile}}"),
+    ("text/x-scss", f"{SASS_BIN} {{infile}} {{outfile}}"),
+)
+
+
+# Disable real-time indexing for local development to avoid Elasticsearch dependency
+HAYSTACK_SIGNAL_PROCESSOR = "haystack.signals.BaseSignalProcessor"
 
 print("Local development settings loaded")

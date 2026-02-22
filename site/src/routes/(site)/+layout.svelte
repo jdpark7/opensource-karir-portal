@@ -176,8 +176,8 @@
       <div class="flex justify-between items-center h-14">
         <!-- Logo -->
         <a href="/" data-sveltekit-reload class="flex items-center gap-2 group">
-          <img src="/logo.png" alt="PeelJobs" class="h-8 w-auto" />
-          <span class="text-xl font-semibold text-black">PeelJobs</span>
+          <img src="/logo.png" alt="InaWorks" class="h-8 w-auto" />
+          <span class="text-xl font-semibold text-black">InaWorks</span>
         </a>
 
         <!-- Desktop Navigation -->
@@ -731,8 +731,8 @@
         <!-- Brand Column -->
         <div class="lg:col-span-2">
           <a href="/" class="flex items-center gap-2 mb-5">
-            <img src="/logo.png" alt="PeelJobs" class="h-8 w-auto" />
-            <span class="text-xl font-semibold">PeelJobs</span>
+            <img src="/logo.png" alt="InaWorks" class="h-8 w-auto" />
+            <span class="text-xl font-semibold">InaWorks</span>
           </a>
           <p class="text-gray-400 text-sm leading-relaxed mb-5 max-w-sm">
             India's trusted job platform connecting professionals with verified
@@ -740,7 +740,7 @@
           </p>
           <div class="flex items-center gap-2">
             <a
-              href="https://x.com/peeljobs"
+              href="https://x.com/inaworks"
               class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition-colors"
               aria-label="Follow us on Twitter"
               rel="noopener noreferrer"
@@ -749,7 +749,7 @@
               <Twitter size={16} />
             </a>
             <a
-              href="https://linkedin.com/company/peeljobs"
+              href="https://linkedin.com/company/inaworks"
               class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition-colors"
               aria-label="Follow us on LinkedIn"
               rel="noopener noreferrer"
@@ -758,7 +758,7 @@
               <Linkedin size={16} />
             </a>
             <a
-              href="https://facebook.com/peeljobs"
+              href="https://facebook.com/inaworks"
               class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition-colors"
               aria-label="Follow us on Facebook"
               rel="noopener noreferrer"
@@ -817,14 +817,14 @@
           <ul class="space-y-2.5">
             <li>
               <a
-                href="https://recruiter.peeljobs.com"
+                href="https://recruiter.inaworks.com"
                 class="text-gray-400 hover:text-white transition-colors text-sm"
                 >Post a Job</a
               >
             </li>
             <li>
               <a
-                href="https://recruiter.peeljobs.com/dashboard"
+                href="https://recruiter.inaworks.com/dashboard"
                 class="text-gray-400 hover:text-white transition-colors text-sm"
                 >Employer Dashboard</a
               >
@@ -844,7 +844,7 @@
           <h5 class="font-semibold text-white mb-4 text-sm">Get in Touch</h5>
           <div class="space-y-3">
             <a
-              href="mailto:peeljobs@micropyramid.com"
+              href="mailto:support@inaworks.com"
               class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
             >
               <div
@@ -852,7 +852,7 @@
               >
                 <Mail size={14} />
               </div>
-              <span class="text-sm">peeljobs@micropyramid.com</span>
+              <span class="text-sm">support@inaworks.com</span>
             </a>
             <div class="flex items-center gap-3 text-gray-400">
               <div
@@ -874,7 +874,7 @@
           class="flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p class="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} PeelJobs. All rights reserved.
+            &copy; {new Date().getFullYear()} InaWorks. All rights reserved.
           </p>
           <div class="flex flex-wrap justify-center gap-6 text-sm">
             <a

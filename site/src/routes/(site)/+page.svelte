@@ -157,10 +157,10 @@
 </script>
 
 <svelte:head>
-  <title>PeelJobs - Find Your Dream Job | India's Smart Job Platform</title>
+  <title>InaWorks.id - Find Your Dream Job | Indonesia's Smart Job Platform</title>
   <meta
     name="description"
-    content="Discover thousands of job opportunities across India. PeelJobs connects talented professionals with top companies using intelligent job matching."
+    content="Discover thousands of job opportunities across Indonesia. InaWorks.id connects talented professionals with top companies using intelligent job matching."
   />
 </svelte:head>
 
@@ -209,7 +209,7 @@
         >
           Join over <span class="font-semibold text-black"
             >1 million professionals</span
-          > who use PeelJobs to discover verified opportunities at India's top companies.
+          > who use InaWorks.id to discover verified opportunities at Indonesia's top companies.
         </p>
 
         <!-- Trust Badges -->
@@ -442,12 +442,12 @@
   </div>
 </section>
 
-<!-- Why Choose PeelJobs -->
+<!-- Why Choose InaWorks.id -->
 <section class="py-16 bg-[#1D2226]">
   <div class="max-w-7xl mx-auto px-4 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-2xl lg:text-3xl font-semibold text-white mb-3">
-        Why choose PeelJobs?
+        Why choose InaWorks.id?
       </h2>
       <p class="text-gray-400 max-w-xl mx-auto">
         Built for job seekers who want results, not hassles.

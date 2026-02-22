@@ -157,7 +157,7 @@
 </script>
 
 <svelte:head>
-	<title>Applicants - {data.job.title} - PeelJobs</title>
+	<title>Applicants - {data.job.title} - InaWorks</title>
 </svelte:head>
 
 <div class="space-y-6">

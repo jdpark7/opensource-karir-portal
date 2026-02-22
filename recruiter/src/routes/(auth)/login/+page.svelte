@@ -25,8 +25,8 @@
 </script>
 
 <svelte:head>
-	<title>Login - PeelJobs Recruiter</title>
-	<meta name="description" content="Sign in to your PeelJobs employer account to manage job postings and connect with top talent." />
+	<title>Login - InaWorks Recruiter</title>
+	<meta name="description" content="Sign in to your InaWorks employer account to manage job postings and connect with top talent." />
 </svelte:head>
 
 <div class="w-full">
@@ -36,7 +36,7 @@
 			<!-- Hero Section -->
 			<div>
 				<h1 class="text-3xl xl:text-4xl font-semibold text-black mb-4 leading-tight">
-					Welcome Back to PeelJobs
+					Welcome Back to InaWorks
 				</h1>
 				<p class="text-base xl:text-lg text-muted leading-relaxed">
 					Continue managing your job postings and connecting with top talent across India.
@@ -220,7 +220,7 @@
 			<div class="mt-5 pt-5 border-t border-border">
 				<p class="text-center text-sm text-muted">
 					Looking for a job?
-					<a href="https://peeljobs.com/login/" class="font-medium text-primary hover:text-primary-hover transition-colors">
+					<a href="https://inaworks.id/login/" class="font-medium text-primary hover:text-primary-hover transition-colors">
 						Job Seeker Login
 					</a>
 				</p>

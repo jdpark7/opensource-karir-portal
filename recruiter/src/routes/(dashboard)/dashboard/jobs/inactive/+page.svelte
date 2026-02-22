@@ -74,7 +74,7 @@
 </script>
 
 <svelte:head>
-	<title>Inactive Jobs - PeelJobs</title>
+	<title>Inactive Jobs - InaWorks</title>
 </svelte:head>
 
 <div class="space-y-6">

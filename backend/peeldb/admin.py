@@ -87,7 +87,11 @@ class CityAdmin(LocationAdminMixin, admin.ModelAdmin):
 admin.site.register(Skill)
 admin.site.register(Language)
 admin.site.register(FunctionalArea)
-admin.site.register(Industry)
+@admin.register(Industry)
+class IndustryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'status', 'slug')
+    search_fields = ('name',)
+
 admin.site.register(User)
 admin.site.register(Google)
 admin.site.register(UserEmail)

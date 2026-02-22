@@ -665,9 +665,6 @@ def list_deserializer(key, value, flags):
 
 
 def job_skills(request, skill, **kwargs):
-    from pymemcache.client.base import Client
-
-    client = Client(("localhost", 11211), deserializer=list_deserializer)
     current_url = reverse("job_skills", kwargs={"skill": skill})
     if kwargs.get("page_num") == "1" or request.GET.get("page") == "1":
         return redirect(current_url, permanent=True)
@@ -676,19 +673,23 @@ def job_skills(request, skill, **kwargs):
         url = current_url + request.GET.get("page") + "/"
         return redirect(url, permanent=True)
 
-    final_skill = client.get("final_skill" + skill)
+    final_skill = cache.get("final_skill" + skill)
     if not final_skill:
         final_skill = get_valid_skills_list(skill)
-        client.set("final_skill" + skill, final_skill, expire=60 * 60 * 24)
-    if final_skill == b"[]":
+        cache.set("final_skill" + skill, final_skill, timeout=60 * 60 * 24)
+    # The original code handled b"[]" specifically because of memcached raw return, 
+    # but Django cache handles python objects. 
+    # We ensure it is a list if it happens to be None or empty differently if needed, 
+    # but strictly following logic:
+    if final_skill == []: 
         final_skill = []
 
-    final_edu = client.get("final_edu" + skill)
+    final_edu = cache.get("final_edu" + skill)
     if not final_edu:
         final_edu = get_valid_qualifications(skill)
-        client.set("final_edu" + skill, final_edu, expire=60 * 60 * 24)
+        cache.set("final_edu" + skill, final_edu, timeout=60 * 60 * 24)
 
-    if final_edu == b"[]":
+    if final_edu == []:
         final_edu = []
     if request.POST.get("refine_search") == "True":
         (
@@ -993,7 +994,7 @@ def job_apply(request, job_id):
                             import urllib.request
                             resume_filename = str(request.user.email) + ".docx"
                             urllib.request.urlretrieve(
-                                "https://peeljobs.s3.amazonaws.com/"
+                                "https://inaworks.s3.amazonaws.com/"
                                 + str(
                                     request.user.resume.encode("ascii", "ignore").decode(
                                         "ascii"
@@ -1633,10 +1634,10 @@ def each_company_jobs(request, company_name, **kwargs):
         data = {
             "message": "Sorry, no jobs available for " + company_name + " jobs",
             "reason": "Unfortunately, we are unable to locate the job you are looking for",
-            "meta_title": "404 - Page Not Found - " + company_name + " - Peeljobs",
+            "meta_title": "404 - Page Not Found - " + company_name + " - InaWorks",
             "meta_description": "404 No Jobs available for "
             + company_name
-            + " - Peeljobs",
+            + " - InaWorks",
             "data_empty": True,
         }
         if request.user.is_authenticated:
@@ -2338,7 +2339,7 @@ def save_codes_and_send_mail(user, request, passwd):
             tech_skill = TechnicalSkill.objects.create(skill=skill[0])
             user.skills.add(tech_skill)
     temp = loader.get_template("email/jobseeker_account.html")
-    subject = "PeelJobs User Account Activation"
+    subject = "InaWorks User Account Activation"
     url = (
         request.scheme
         + "://"
@@ -2676,7 +2677,7 @@ def user_subscribe(request):
                     + "/"
                 )
                 c = {"user_email": email, "skills": skills, "redirect_url": url}
-                subject = "PeelJobs New Subscription"
+                subject = "InaWorks New Subscription"
                 rendered = t.render(c)
                 mto = [email]
                 send_email.delay(mto, subject, rendered)

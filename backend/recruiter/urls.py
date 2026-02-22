@@ -22,11 +22,11 @@ app_name = "recruiter"
 
 urlpatterns = [
     # Redirect old recruiter URLs to new SvelteKit dashboard
-    url(r"^$", RedirectView.as_view(url="http://localhost:5174/dashboard", permanent=False), name="index"),
-    url(r"^dashboard/$", RedirectView.as_view(url="http://localhost:5174/dashboard", permanent=False), name="dashboard"),
-    url(r"^job/list/$", RedirectView.as_view(url="http://localhost:5174/dashboard/jobs", permanent=False), name="list"),
-    url(r"^profile/$", RedirectView.as_view(url="http://localhost:5174/dashboard/account", permanent=False), name="profile"),
-    url(r"^login/$", RedirectView.as_view(url="http://localhost:5174/login", permanent=False), name="new_user"),
+    url(r"^$", RedirectView.as_view(url="https://recruiter.inaworks.id/dashboard", permanent=False), name="index"),
+    url(r"^dashboard/$", RedirectView.as_view(url="https://recruiter.inaworks.id/dashboard", permanent=False), name="dashboard"),
+    url(r"^job/list/$", RedirectView.as_view(url="https://recruiter.inaworks.id/dashboard/jobs", permanent=False), name="list"),
+    url(r"^profile/$", RedirectView.as_view(url="https://recruiter.inaworks.id/dashboard/account", permanent=False), name="profile"),
+    url(r"^login/$", RedirectView.as_view(url="https://recruiter.inaworks.id/login", permanent=False), name="new_user"),
 
     # Legacy utility endpoints (still used by some parts of the system)
     url(r"^how-it-works/$", how_it_works, name="how_it_works"),

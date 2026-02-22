@@ -1,5 +1,5 @@
 /**
- * Base API Client for PeelJobs
+ * Base API Client for InaWorks
  * Handles all HTTP requests to Django backend
  *
  * Authentication uses JWT tokens stored in localStorage

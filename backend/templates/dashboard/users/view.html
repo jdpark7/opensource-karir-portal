@@ -27,7 +27,7 @@
       <div class="flex items-center gap-6">
         <div class="w-20 h-20 rounded-full bg-white/20 border-4 border-white/40 flex items-center justify-center overflow-hidden">
           {% if user.profile_pic %}
-          <img src="//peeljobs.s3.amazonaws.com/{{ user.profile_pic }}" class="w-full h-full object-cover" alt="{{ user.username }}">
+          <img src="//inaworks.s3.amazonaws.com/{{ user.profile_pic }}" class="w-full h-full object-cover" alt="{{ user.username }}">
           {% else %}
           <img src="{% static 'dummy.jpg' %}" class="w-full h-full object-cover" alt="{{ user.username }}">
           {% endif %}

@@ -31,7 +31,7 @@
               <div class="flex items-center gap-4">
                 {% if company.profile_pic %}
                 <div class="w-16 h-16 rounded-lg border border-neutral-200 overflow-hidden bg-neutral-50 flex-shrink-0">
-                  <img src="{% if 'http' in company.profile_pic|slugify %}{{company.profile_pic}}{% else %}https://peeljobs.s3.amazonaws.com/{{company.profile_pic}}{% endif %}"
+                  <img src="{% if 'http' in company.profile_pic|slugify %}{{company.profile_pic}}{% else %}https://inaworks.s3.amazonaws.com/{{company.profile_pic}}{% endif %}"
                        class="w-full h-full object-cover" alt="Current Logo">
                 </div>
                 {% else %}

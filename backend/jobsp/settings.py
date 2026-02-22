@@ -11,10 +11,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DEBUG = os.getenv("DEBUG", True)
 TEMPLATE_DEBUG = DEBUG
 
-DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "peeljobs@micropyramid.com")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "inaworks@micropyramid.com")
 
 
-PEEL_URL = os.getenv("PEEL_URL", "http://peeljobs.com/")
+PEEL_URL = os.getenv("PEEL_URL", "http://inaworks.id/")
 
 # Recruiter Frontend URL for team invitation emails
 RECRUITER_FRONTEND_URL = os.getenv("RECRUITER_FRONTEND_URL", "http://localhost:5173")
@@ -31,7 +31,7 @@ logging = "DEBUG"
 GIT_APP_ID = os.getenv("GITAPPID")
 GIT_APP_SECRET = os.getenv("GITAPPSECRET")
 
-ALLOWED_HOSTS = ["peeljobs.com", "test.peeljobs.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["inaworks.id", "test.inaworks.id", "localhost", "127.0.0.1"]
 
 # tw app
 tw_oauth_token_secret = os.getenv("twoauthtokensecret")
@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     "django_ses",
     "drf_spectacular",  # API documentation
     "api",  # New API app for job seekers
+    "course",
 )
 
 MIDDLEWARE = [
@@ -171,7 +172,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",  # Recruiter UI
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.peeljobs\.com$",
+    r"^https://\w+\.inaworks\.com$",
 ]
 CORS_ALLOW_METHODS = list(default_methods)
 CORS_ALLOW_HEADERS = list(default_headers)
@@ -370,7 +371,7 @@ THUMBNAIL_FORMAT = "PNG"
 THUMBNAIL_CACHE_TIMEOUT = 3600 * 24 * 365 * 10
 
 TIMEZONE = "Asia/Calcutta"
-LOGO = "http://localhost:8000/logo.png"
+LOGO = "http://localhost:8000/static/logo.svg"
 
 
 THUMBNAIL_BACKEND = "jobsp.thumbnailname.SEOThumbnailBackend"
@@ -409,10 +410,10 @@ FB_DEL_ACCESS_TOKEN = os.getenv("FBDELACCESSTOKEN")
 REC_FB_ACCESS_TOKEN = os.getenv("RECFBACCESSTOKEN")
 
 URLS = [
-    "http://stage.peeljobs.com/",
-    "http://stage.peeljobs.com/fresher-jobs/",
-    "http://stage.peeljobs.com/jobs/",
-    "http://stage.peeljobs.com/companies/",
+    "http://stage.inaworks.id/",
+    "http://stage.inaworks.id/fresher-jobs/",
+    "http://stage.inaworks.id/jobs/",
+    "http://stage.inaworks.id/companies/",
 ]
 
 DAILY_REPORT_USERS = [
@@ -468,20 +469,20 @@ REST_USE_JWT = True
 
 # drf-spectacular Configuration
 SPECTACULAR_SETTINGS = {
-    "TITLE": "PeelJobs API",
-    "DESCRIPTION": "REST API for PeelJobs Job Seeker Platform - Google OAuth Authentication and Job Management",
+    "TITLE": "InaWorks API",
+    "DESCRIPTION": "REST API for InaWorks Job Seeker Platform - Google OAuth Authentication and Job Management",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "CONTACT": {
-        "name": "PeelJobs Support",
-        "email": "support@peeljobs.com",
+        "name": "InaWorks Support",
+        "email": "support@inaworks.id",
     },
     "LICENSE": {
         "name": "Proprietary",
     },
     "SERVERS": [
         {"url": "http://localhost:8000", "description": "Development server"},
-        {"url": "https://peeljobs.com", "description": "Production server"},
+        {"url": "https://inaworks.id", "description": "Production server"},
     ],
     "TAGS": [
         {"name": "Authentication", "description": "Google OAuth 2.0 and JWT token management"},

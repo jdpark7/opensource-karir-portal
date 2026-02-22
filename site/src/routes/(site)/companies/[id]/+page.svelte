@@ -58,7 +58,7 @@
 
     const shareData = {
       title: `${company.name} - Company Profile`,
-      text: `Check out ${company.name} on PeelJobs`,
+      text: `Check out ${company.name} on InaWorks`,
       url: window.location.href,
     };
 
@@ -85,8 +85,8 @@
 </script>
 
 <svelte:head>
-  <title>{company.name} - Company Profile | PeelJobs</title>
-  <meta name="description" content="{company.profile || `Explore ${company.name} and discover job opportunities. View company profile, open positions, and more on PeelJobs.`}" />
+  <title>{company.name} - Company Profile | InaWorks</title>
+  <meta name="description" content="{company.profile || `Explore ${company.name} and discover job opportunities. View company profile, open positions, and more on InaWorks.`}" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="{company.name} - Company Profile" />

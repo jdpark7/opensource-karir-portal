@@ -4,7 +4,7 @@
 {% load static %}
 {% load thumbnail %}
 
-{% block title %}Job Preview - {{ jobpost.title }} - PeelJobs{% endblock %}
+{% block title %}Job Preview - {{ jobpost.title }} - InaWorks{% endblock %}
 
 {% block content %}
 <div class="min-h-screen bg-gray-50">
@@ -18,12 +18,15 @@
             <p class="mt-2 text-gray-600">Review your job posting before publishing</p>
           </div>
           <div class="flex space-x-3">
-            <a href="{% url 'recruiter:edit' jobpost.id %}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors">
+            <a href="{% url 'recruiter:edit' jobpost.id %}"
+              class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors">
               <i data-lucide="edit" class="w-4 h-4 mr-2"></i>
               Edit Job
             </a>
             {% if jobpost.status != 'Disabled' %}
-            <button type="button" class="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors deactivate-job" data-href="{% url 'recruiter:deactivate_job' jobpost.id %}">
+            <button type="button"
+              class="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors deactivate-job"
+              data-href="{% url 'recruiter:deactivate_job' jobpost.id %}">
               <i data-lucide="x" class="w-4 h-4 mr-2"></i>
               Close Job
             </button>
@@ -84,25 +87,29 @@
               </div>
               <div class="space-y-3">
                 {% if jobpost.status != 'Disabled' %}
-                <a href="{% if request.user.is_agency_recruiter %}{% url 'agency:enable_email_notifications' jobpost.id %}{% else %}{% url 'recruiter:enable_email_notifications' jobpost.id %}{% endif %}" class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
+                <a href="{% if request.user.is_agency_recruiter %}{% url 'agency:enable_email_notifications' jobpost.id %}{% else %}{% url 'recruiter:enable_email_notifications' jobpost.id %}{% endif %}"
+                  class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
                   <i data-lucide="bell" class="w-4 h-4 mr-2"></i>
                   {% if jobpost.send_email_notifications %}Disable{% else %}Enable{% endif %} Email Notifications
                 </a>
                 {% endif %}
-                
+
                 {% if request.user.is_agency_recruiter %}
-                <a href="{% url 'agency:candidates_applied' jobpost.id %}" class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
+                <a href="{% url 'agency:candidates_applied' jobpost.id %}"
+                  class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
                   <i data-lucide="users" class="w-4 h-4 mr-2"></i>
                   View Applications
                 </a>
                 {% else %}
-                <a href="{% url 'recruiter:candidates_applied' jobpost.id %}" class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
+                <a href="{% url 'recruiter:candidates_applied' jobpost.id %}"
+                  class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
                   <i data-lucide="users" class="w-4 h-4 mr-2"></i>
                   View Applications
                 </a>
                 {% endif %}
 
-                <a href="{% url 'recruiter:new' jobpost.job_type %}" class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
+                <a href="{% url 'recruiter:new' jobpost.job_type %}"
+                  class="flex items-center w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
                   <i data-lucide="copy" class="w-4 h-4 mr-2"></i>
                   Copy This Job
                 </a>
@@ -126,11 +133,14 @@
         </button>
       </div>
       <div class="p-4">
-        <p class="text-sm text-gray-700">Are you sure you want to close this job? This action cannot be undone and the job will no longer be visible to candidates.</p>
+        <p class="text-sm text-gray-700">Are you sure you want to close this job? This action cannot be undone and the
+          job will no longer be visible to candidates.</p>
       </div>
       <div class="flex justify-end p-4 border-t border-gray-200 space-x-2">
-        <button type="button" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors" onclick="closeDeactivateModal()">Cancel</button>
-        <button type="button" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors" id="confirmDeactivate">Close Job</button>
+        <button type="button" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors"
+          onclick="closeDeactivateModal()">Cancel</button>
+        <button type="button" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+          id="confirmDeactivate">Close Job</button>
       </div>
     </div>
   </div>
@@ -140,7 +150,7 @@
 {% block extra_js %}
 <!-- Initialize Lucide Icons -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();
     }
@@ -150,22 +160,22 @@
 <!-- Job Deactivation Handler -->
 <script>
   let deactivateUrl = '';
-  
+
   function closeDeactivateModal() {
     document.getElementById('deactivateModal').classList.add('hidden');
   }
-  
+
   // Handle deactivate job button
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     if (e.target.closest('.deactivate-job')) {
       e.preventDefault();
       deactivateUrl = e.target.closest('.deactivate-job').getAttribute('data-href');
       document.getElementById('deactivateModal').classList.remove('hidden');
     }
   });
-  
+
   // Confirm deactivation
-  document.getElementById('confirmDeactivate').addEventListener('click', function() {
+  document.getElementById('confirmDeactivate').addEventListener('click', function () {
     if (deactivateUrl) {
       window.location.href = deactivateUrl;
     }

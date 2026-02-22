@@ -96,7 +96,7 @@
 </script>
 
 <svelte:head>
-	<title>Company Profile - PeelJobs Recruiter</title>
+	<title>Company Profile - InaWorks Recruiter</title>
 </svelte:head>
 
 <div class="max-w-4xl space-y-6">

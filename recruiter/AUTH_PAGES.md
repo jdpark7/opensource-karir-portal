@@ -1,6 +1,6 @@
 # Recruiter Platform - Authentication Pages
 
-This document describes all authentication-related pages created for the PeelJobs recruiter/employer platform.
+This document describes all authentication-related pages created for the InaWorks recruiter/employer platform.
 
 ## Overview
 

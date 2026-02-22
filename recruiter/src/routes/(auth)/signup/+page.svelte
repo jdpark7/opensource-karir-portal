@@ -95,8 +95,8 @@
 </script>
 
 <svelte:head>
-	<title>Sign Up - PeelJobs Recruiter</title>
-	<meta name="description" content="Create your PeelJobs employer account and start hiring top talent today." />
+	<title>Sign Up - InaWorks Recruiter</title>
+	<meta name="description" content="Create your InaWorks employer account and start hiring top talent today." />
 </svelte:head>
 
 <div class="w-full">
@@ -105,7 +105,7 @@
 		<div class="space-y-8 lg:sticky lg:top-8 hidden lg:block">
 			<div>
 				<h1 class="text-3xl xl:text-4xl font-semibold text-black mb-4 leading-tight">
-					Join 10,000+ Companies Hiring with PeelJobs
+					Join 10,000+ Companies Hiring with InaWorks
 				</h1>
 				<p class="text-base xl:text-lg text-muted leading-relaxed">
 					Access India's largest talent pool with 100k+ active job seekers. Post unlimited jobs for free and find the perfect candidates faster.
@@ -136,7 +136,7 @@
 			<Card padding="lg" class="shadow-md">
 				<h3 class="text-xl font-semibold text-black mb-6 flex items-center gap-2">
 					<Target class="w-5 h-5 text-warning" />
-					Why Recruiters Choose PeelJobs
+					Why Recruiters Choose InaWorks
 				</h3>
 				<div class="space-y-5">
 					<div class="flex items-start gap-4">

@@ -196,8 +196,8 @@
 </script>
 
 <svelte:head>
-  <title>Sign Up - PeelJobs</title>
-  <meta name="description" content="Create your PeelJobs account and start your journey to finding the perfect job or hiring top talent." />
+  <title>Sign Up - InaWorks</title>
+  <meta name="description" content="Create your InaWorks account and start your journey to finding the perfect job or hiring top talent." />
 </svelte:head>
 
 <div class="min-h-screen flex">
@@ -213,9 +213,9 @@
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3 mb-12">
         <div class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-          <span class="text-xl font-bold text-white">P</span>
+          <span class="text-xl font-bold text-white">I</span>
         </div>
-        <span class="text-2xl font-semibold text-white">PeelJobs</span>
+        <span class="text-2xl font-semibold text-white">InaWorks</span>
       </a>
 
       <!-- Main Heading -->
@@ -268,9 +268,9 @@
       <div class="max-w-lg mx-auto w-full px-6 h-16 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2 lg:hidden">
           <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span class="text-sm font-bold text-white">P</span>
+            <span class="text-sm font-bold text-white">I</span>
           </div>
-          <span class="text-lg font-semibold text-black">PeelJobs</span>
+          <span class="text-lg font-semibold text-black">InaWorks</span>
         </a>
         <div class="text-sm text-muted ml-auto">
           Already have an account?{' '}
@@ -286,7 +286,7 @@
           <div class="animate-fade-in-up" style="opacity: 0; animation-fill-mode: forwards;">
             <div class="text-center mb-10">
               <h1 class="text-2xl font-semibold text-black mb-2">
-                Join PeelJobs Today
+                Join InaWorks Today
               </h1>
               <p class="text-muted">
                 Choose how you'd like to get started

@@ -162,7 +162,7 @@
 </script>
 
 <svelte:head>
-	<title>{profile.name} - {profile.title} | PeelJobs</title>
+	<title>{profile.name} - {profile.title} | InaWorks.id </title>
 	<meta name="description" content="{profile.name} - {profile.title}. {profile.bio}" />
 </svelte:head>
 

@@ -81,7 +81,7 @@
 </script>
 
 <svelte:head>
-	<title>Company Microsite - PeelJobs</title>
+	<title>Company Microsite - InaWorks</title>
 </svelte:head>
 
 <div class="space-y-6">

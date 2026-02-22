@@ -1,6 +1,6 @@
-# PeelJobs Design System
+# InaWorks Design System
 
-A comprehensive design guide based on Google's Material Design 3 principles, customized for PeelJobs.
+A comprehensive design guide based on Google's Material Design 3 principles, customized for InaWorks.
 
 ---
 

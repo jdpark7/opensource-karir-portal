@@ -40,8 +40,8 @@
 </script>
 
 <svelte:head>
-	<title>Reset Password - PeelJobs Recruiter</title>
-	<meta name="description" content="Create a new password for your PeelJobs employer account." />
+	<title>Reset Password - InaWorks Recruiter</title>
+	<meta name="description" content="Create a new password for your InaWorks employer account." />
 </svelte:head>
 
 <Card padding="lg" class="shadow-lg">

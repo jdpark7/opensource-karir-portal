@@ -1,4 +1,4 @@
-# PeelJobs Mission, Vision & Values
+# InaWorks Mission, Vision & Values
 
 ## Vision
 

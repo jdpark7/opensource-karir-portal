@@ -27,7 +27,7 @@
 	// FAQs
 	const faqs = [
 		{
-			question: 'Is PeelJobs really 100% free?',
+			question: 'Is InaWorks really 100% free?',
 			answer: "Yes! We never charge for job postings, candidate access, or any recruiting features. Our mission is to connect employers with the best talent in India at zero cost."
 		},
 		{
@@ -40,7 +40,7 @@
 		},
 		{
 			question: 'Will you start charging in the future?',
-			answer: "No. We're committed to keeping PeelJobs free forever. Our goal is to make quality hiring accessible to every employer in India, from startups to enterprises."
+			answer: "No. We're committed to keeping InaWorks free forever. Our goal is to make quality hiring accessible to every employer in India, from startups to enterprises."
 		},
 		{
 			question: 'How many jobs can I post?',
@@ -68,13 +68,13 @@
 </script>
 
 <svelte:head>
-	<title>Pricing - 100% Free Forever | PeelJobs - India's Free Job Posting Platform</title>
-	<meta name="description" content="Post unlimited jobs for FREE. No hidden costs, no premium plans. Access 1M+ candidates, advanced hiring tools, and unlimited job postings at zero cost. Join 50K+ employers hiring on PeelJobs." />
-	<meta property="og:title" content="100% Free Job Posting Platform - PeelJobs Pricing" />
+	<title>Pricing - 100% Free Forever | InaWorks - India's Free Job Posting Platform</title>
+	<meta name="description" content="Post unlimited jobs for FREE. No hidden costs, no premium plans. Access 1M+ candidates, advanced hiring tools, and unlimited job postings at zero cost. Join 50K+ employers hiring on InaWorks." />
+	<meta property="og:title" content="100% Free Job Posting Platform - InaWorks Pricing" />
 	<meta property="og:description" content="Never pay for job postings again. Unlimited free access to India's largest talent pool. Post jobs, search resumes, and hire the best candidates - all for free." />
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="100% Free Job Posting Platform - PeelJobs Pricing" />
+	<meta name="twitter:title" content="100% Free Job Posting Platform - InaWorks Pricing" />
 	<meta name="twitter:description" content="Unlimited job postings, resume database access, and hiring tools - all FREE forever." />
 </svelte:head>
 
@@ -113,7 +113,7 @@
 			</h1>
 
 			<p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto animate-fade-in-up" style="opacity: 0; animation-delay: 200ms;">
-				Join 50,000+ employers who trust PeelJobs for their hiring needs. Post unlimited jobs, access 1 million+ candidates, and build your dream team - all for <strong class="text-white">FREE</strong>.
+				Join 50,000+ employers who trust InaWorks for their hiring needs. Post unlimited jobs, access 1 million+ candidates, and build your dream team - all for <strong class="text-white">FREE</strong>.
 			</p>
 
 			<!-- CTA Buttons -->
@@ -218,7 +218,7 @@
 				<div class="grid grid-cols-3 bg-surface border-b border-border">
 					<div class="p-4 lg:p-6"></div>
 					<div class="p-4 lg:p-6 text-center border-l border-border">
-						<div class="font-semibold text-primary text-lg lg:text-xl">PeelJobs</div>
+						<div class="font-semibold text-primary text-lg lg:text-xl">InaWorks</div>
 						<div class="text-xs lg:text-sm text-muted mt-1">Free Forever</div>
 					</div>
 					<div class="p-4 lg:p-6 text-center border-l border-border">
@@ -265,7 +265,7 @@
 <section class="py-16 lg:py-24 bg-surface">
 	<div class="max-w-7xl mx-auto px-4 lg:px-8">
 		<div class="text-center mb-12">
-			<h2 class="text-2xl lg:text-3xl font-semibold text-black tracking-tight mb-4">Why Is PeelJobs Free?</h2>
+			<h2 class="text-2xl lg:text-3xl font-semibold text-black tracking-tight mb-4">Why Is InaWorks Free?</h2>
 			<p class="text-base lg:text-lg text-muted max-w-3xl mx-auto">
 				Our mission is simple: connect employers with the best talent in India without financial barriers.
 			</p>

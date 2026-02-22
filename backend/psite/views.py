@@ -138,13 +138,13 @@ def contact(request):
                     "enquiry_type": request.POST.get("enquery_type"),
                     "comment": request.POST.get("comment"),
                 }
-                subject = "New Request ContactUs | PeelJobs"
+                subject = "New Request ContactUs | InaWorks"
                 mto = settings.SUPPORT_EMAILS
                 t = loader.get_template("email/contactus_email.html")
                 rendered = t.render(c)
                 send_email.delay(mto, subject, rendered)
 
-                subject = "Thanks for contacting us | PeelJobs"
+                subject = "Thanks for contacting us | InaWorks"
                 mto = settings.SUPPORT_EMAILS
                 t = loader.get_template("email/user_contactus.html")
                 rendered = t.render(c)

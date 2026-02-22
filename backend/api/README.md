@@ -1,6 +1,6 @@
-# PeelJobs API - Job Seeker Authentication
+# InaWorks API - Job Seeker Authentication
 
-Modern REST API for PeelJobs Job Seeker authentication using Google OAuth 2.0 and JWT tokens.
+Modern REST API for InaWorks Job Seeker authentication using Google OAuth 2.0 and JWT tokens.
 
 ## 🎯 Overview
 
@@ -231,12 +231,12 @@ None at this time.
 
 ## 📞 Support
 
-- Email: support@peeljobs.com
-- GitHub Issues: https://github.com/micropyramid/peeljobs/issues
+- Email: support@inaworks.id
+- GitHub Issues: https://github.com/micropyramid/inaworks/issues
 
 ## 📄 License
 
-Same as main PeelJobs project.
+Same as main InaWorks project.
 
 ---
 

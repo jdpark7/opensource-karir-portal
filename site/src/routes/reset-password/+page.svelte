@@ -111,8 +111,8 @@
 </script>
 
 <svelte:head>
-  <title>Reset Password - PeelJobs</title>
-  <meta name="description" content="Reset your PeelJobs account password" />
+  <title>Reset Password - InaWorks</title>
+  <meta name="description" content="Reset your InaWorks account password" />
 </svelte:head>
 
 <div class="min-h-screen bg-surface flex items-center justify-center p-6">
@@ -121,9 +121,9 @@
     <div class="text-center mb-8 animate-fade-in-down" style="opacity: 0; animation-fill-mode: forwards;">
       <a href="/" class="inline-flex items-center gap-3">
         <div class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-          <span class="text-xl font-semibold text-white">P</span>
+          <span class="text-xl font-semibold text-white">I</span>
         </div>
-        <span class="text-2xl font-semibold text-black">PeelJobs</span>
+        <span class="text-2xl font-semibold text-black">InaWorks</span>
       </a>
     </div>
 

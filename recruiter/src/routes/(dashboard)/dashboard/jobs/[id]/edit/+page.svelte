@@ -168,7 +168,7 @@
 </script>
 
 <svelte:head>
-	<title>Edit Job - {data.job.title} - PeelJobs Recruiter</title>
+	<title>Edit Job - {data.job.title} - InaWorks Recruiter</title>
 </svelte:head>
 
 <div class="max-w-5xl mx-auto space-y-6">

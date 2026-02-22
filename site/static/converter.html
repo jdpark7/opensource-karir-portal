@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <img src="logo.svg" id="img" style="display:none">
+    <canvas id="canvas"></canvas>
+    <script>
+        const img = document.getElementById('img');
+        img.onload = () => {
+            const canvas = document.getElementById('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, 512, 512);
+
+            canvas.toBlob((blob) => {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'logo.png';
+                a.id = 'download-link';
+                document.body.appendChild(a);
+                a.click();
+                document.body.innerHTML += '<div id="done">DONE</div>';
+            }, 'image/png');
+        };
+    </script>
+</body>
+
+</html>

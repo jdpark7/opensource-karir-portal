@@ -298,6 +298,7 @@ urlpatterns = [
     url(r"^celery-check/", include("mp_celery_monitor.urls", namespace="celery-check")),
     # Job Seeker API (DRF + JWT)
     path("api/", include("api.urls", namespace="api")),
+    path("courses/", include("course.urls", namespace="course")),
 ]
 
 # Add API documentation URLs (drf-spectacular)
@@ -348,7 +349,7 @@ sitemaps = {
 
 urlpatterns += [
     # Sitemap index - automatically splits into multiple files if needed
-    # Domain (peeljobs.com) configured via Django Site framework (SITE_ID=1)
+    # Domain (inaworks.id) configured via Django Site framework (SITE_ID=1)
     path('sitemap.xml', sitemap_index, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.index'),
     # Individual sitemap sections
     path('sitemap-<section>.xml', sitemap_view, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),

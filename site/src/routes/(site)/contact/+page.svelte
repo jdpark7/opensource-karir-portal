@@ -51,8 +51,8 @@
 		{
 			icon: Mail,
 			title: 'Email Us',
-			details: 'peeljobs@micropyramid.com',
-			link: 'mailto:peeljobs@micropyramid.com',
+			details: 'support@inaworks.com',
+			link: 'mailto:support@inaworks.com',
 			description: 'Send us an email anytime'
 		},
 		{
@@ -70,8 +70,8 @@
 			answer: 'We typically respond to all inquiries within 24 hours during business days.'
 		},
 		{
-			question: 'Is PeelJobs really free?',
-			answer: 'Yes! PeelJobs is completely free for both job seekers and employers. No hidden fees, ever.'
+			question: 'Is InaWorks really free?',
+			answer: 'Yes! InaWorks is completely free for both job seekers and employers. No hidden fees, ever.'
 		},
 		{
 			question: 'Can I visit your office?',
@@ -162,7 +162,7 @@
 				errors.submit = 'Please fix the errors above and try again.';
 				toast.error('Please check the form for errors');
 			} else {
-				errors.submit = 'Failed to send message. Please try again or email us directly at peeljobs@micropyramid.com';
+				errors.submit = 'Failed to send message. Please try again or email us directly at support@inaworks.com';
 				toast.error('Failed to send message. Please try again.');
 			}
 		} finally {
@@ -172,19 +172,19 @@
 </script>
 
 <svelte:head>
-	<title>Contact Us - PeelJobs | Get in Touch with Our Support Team</title>
-	<meta name="description" content="Have questions or need help? Contact the PeelJobs support team. We're here to assist job seekers and employers with our free job portal platform." />
-	<link rel="canonical" href="https://peeljobs.com/contact/" />
+	<title>Contact Us - InaWorks | Get in Touch with Our Support Team</title>
+	<meta name="description" content="Have questions or need help? Contact the InaWorks support team. We're here to assist job seekers and employers with our free job portal platform." />
+	<link rel="canonical" href="https://inaworks.id/contact/" />
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="Contact PeelJobs Support - We're Here to Help" />
+	<meta property="og:title" content="Contact InaWorks Support - We're Here to Help" />
 	<meta property="og:description" content="Get in touch with our team for any questions about our free job portal." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://peeljobs.com/contact/" />
+	<meta property="og:url" content="https://inaworks.id/contact/" />
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Contact PeelJobs" />
+	<meta name="twitter:title" content="Contact InaWorks" />
 	<meta name="twitter:description" content="Reach out to our support team for assistance." />
 </svelte:head>
 
@@ -547,11 +547,11 @@
 						Having trouble with your account, applications, or job search? Our support team is ready to assist you.
 					</p>
 					<a
-						href="mailto:peeljobs@micropyramid.com"
+						href="mailto:support@inaworks.com"
 						class="inline-flex items-center gap-2 text-primary hover:text-primary-hover font-medium group"
 					>
 						<Mail size={16} />
-						<span class="break-all">peeljobs@micropyramid.com</span>
+						<span class="break-all">support@inaworks.com</span>
 					</a>
 				</div>
 
@@ -566,11 +566,11 @@
 						Questions about posting jobs or managing applicants? We're here to help you find the right talent!
 					</p>
 					<a
-						href="mailto:peeljobs@micropyramid.com"
+						href="mailto:support@inaworks.com"
 						class="inline-flex items-center gap-2 text-success hover:text-success font-medium group"
 					>
 						<Mail size={16} />
-						<span class="break-all">peeljobs@micropyramid.com</span>
+						<span class="break-all">support@inaworks.com</span>
 					</a>
 				</div>
 			</div>

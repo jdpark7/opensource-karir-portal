@@ -26,9 +26,9 @@
 	function formatSalary(min: number, max: number, type: string): string {
 		if (!min && !max) return 'Not disclosed';
 		const formatAmount = (amount: number) => {
-			if (amount >= 10000000) return `₹${(amount / 10000000).toFixed(2)}Cr`;
-			if (amount >= 100000) return `₹${(amount / 100000).toFixed(1)}L`;
-			return `₹${(amount / 1000).toFixed(0)}K`;
+			if (amount >= 1000000000) return `Rp ${(amount / 1000000000).toFixed(2)}B`;
+			if (amount >= 1000000) return `Rp ${(amount / 1000000).toFixed(1)}M`;
+			return `Rp ${(amount / 1000).toFixed(0)}K`;
 		};
 		const minStr = min ? formatAmount(min) : '';
 		const maxStr = max ? formatAmount(max) : '';
@@ -95,7 +95,7 @@
 </script>
 
 <svelte:head>
-	<title>Preview: {job.title} - PeelJobs</title>
+	<title>Preview: {job.title} - InaWorks</title>
 </svelte:head>
 
 <div class="min-h-screen bg-surface">

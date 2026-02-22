@@ -1,8 +1,11 @@
+from django.conf import settings
+
 def get_pj_icons(request):
+    domain = getattr(settings, 'PEEL_URL', '').rstrip('/')
     logos = {
-        "jobopenings": "http://cdn.peeljobs.com/jobopenings1.png",
-        "logo": "https://cdn.peeljobs.com/logo.png",
-        "favicon": "https://cdn.peeljobs.com/favicon.png",
-        "cdn_path": "https://cdn.peeljobs.com/",
+        "jobopenings": f"{domain}/static/img/jobopenings1.png",
+        "logo": f"{domain}/static/logo.svg",
+        "favicon": f"{domain}/static/img/favicon.png",
+        "cdn_path": f"{domain}/static/",
     }
     return logos

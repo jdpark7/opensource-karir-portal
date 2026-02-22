@@ -286,7 +286,7 @@ def forgot_password(request):
                     
                     # Prepare email content
                     temp = loader.get_template("email/forgot_password.html")
-                    subject = "Password Reset - PeelJobs"
+                    subject = "Password Reset - InaWorks"
                     mto = email
                     url = (
                         request.scheme

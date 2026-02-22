@@ -136,7 +136,7 @@
 </script>
 
 <svelte:head>
-	<title>My Applications - PeelJobs</title>
+	<title>My Applications - InaWorks.id</title>
 	<meta name="description" content="Track all your job applications in one place" />
 </svelte:head>
 

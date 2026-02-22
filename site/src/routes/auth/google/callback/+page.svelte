@@ -76,7 +76,7 @@
 </script>
 
 <svelte:head>
-	<title>Authenticating - PeelJobs</title>
+	<title>Authenticating - InaWorks</title>
 </svelte:head>
 
 <div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">

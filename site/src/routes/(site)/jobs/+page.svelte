@@ -514,8 +514,8 @@
 </script>
 
 <svelte:head>
-  <title>Find Jobs - PeelJobs</title>
-  <meta name="description" content="Discover your dream job with PeelJobs. Browse thousands of job opportunities with advanced filters for location, skills, salary, and more." />
+  <title>Find Jobs - InaWorks</title>
+  <meta name="description" content="Discover your dream job with InaWorks. Browse thousands of job opportunities with advanced filters for location, skills, salary, and more." />
 </svelte:head>
 
 <div class="min-h-screen bg-surface-50">

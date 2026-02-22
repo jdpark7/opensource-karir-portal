@@ -10,13 +10,16 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"verify-ssr": "bash verify-ssr.sh"
+		"verify-ssr": "bash verify-ssr.sh",
+		"watch-css": "tailwindcss -i ./tailwind-django.css -o ../backend/static/css/tailwind-output.css --watch",
+		"build-css": "tailwindcss -i ./tailwind-django.css -o ../backend/static/css/tailwind-output.css"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/adapter-node": "^5.4.0",
 		"@sveltejs/kit": "^2.49.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"@tailwindcss/cli": "^4.1.18",
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.18",

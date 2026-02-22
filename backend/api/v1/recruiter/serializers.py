@@ -245,7 +245,7 @@ class CompanyDetailSerializer(serializers.ModelSerializer):
                     return request.build_absolute_uri(obj.profile_pic.url)
                 except Exception:
                     pass
-        return 'https://cdn.peeljobs.com/static/company_logo.png'
+        return 'https://cdn.inaworks.com/static/company_logo.png'
 
 
 class CompanyUpdateSerializer(serializers.ModelSerializer):

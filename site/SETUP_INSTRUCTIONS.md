@@ -3,7 +3,7 @@
 ## Install Required Packages
 
 ```bash
-cd /home/ashwin/git-prjs/peeljobs/peeljobs/ui
+cd /home/ashwin/git-prjs/inaworks/inaworks/ui
 
 # Install adapter-node and openapi-typescript
 pnpm add -D @sveltejs/adapter-node openapi-typescript
@@ -20,11 +20,11 @@ Replace adapter-auto with adapter-node (see svelte.config.js)
 
 ```bash
 # Make sure Django is running first
-cd /home/ashwin/git-prjs/peeljobs/peeljobs
+cd /home/ashwin/git-prjs/inaworks/inaworks
 python manage.py runserver
 
 # In another terminal, generate types
-cd /home/ashwin/git-prjs/peeljobs/peeljobs/ui
+cd /home/ashwin/git-prjs/inaworks/inaworks/ui
 pnpm run generate-types
 ```
 

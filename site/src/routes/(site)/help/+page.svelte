@@ -44,14 +44,14 @@
 		{
 			id: 1,
 			category: 'getting_started',
-			question: 'How do I create an account on PeelJobs?',
+			question: 'How do I create an account on InaWorks?',
 			answer: "To create an account, click on \"Register\" in the top right corner of the homepage. You can sign up using your email address or use Google/Facebook OAuth for quick registration. Fill in your basic details, verify your email, and you're ready to start your job search!"
 		},
 		{
 			id: 2,
 			category: 'getting_started',
-			question: 'Is PeelJobs free to use for job seekers?',
-			answer: 'Yes! PeelJobs is completely free for job seekers. You can create an account, search for jobs, apply to unlimited positions, and use all our features without any charges.'
+			question: 'Is InaWorks free to use for job seekers?',
+			answer: 'Yes! InaWorks is completely free for job seekers. You can create an account, search for jobs, apply to unlimited positions, and use all our features without any charges.'
 		},
 		{
 			id: 3,
@@ -169,7 +169,7 @@
 			id: 20,
 			category: 'technical',
 			question: "I'm not receiving email notifications. How do I fix this?",
-			answer: 'Check your spam/junk folder for emails from PeelJobs. Add support@peeljobs.com to your contacts. Also verify that email notifications are enabled in Settings > Notifications. If issues persist, contact support.'
+			answer: 'Check your spam/junk folder for emails from InaWorks. Add support@inaworks.id to your contacts. Also verify that email notifications are enabled in Settings > Notifications. If issues persist, contact support.'
 		},
 		{
 			id: 21,
@@ -222,9 +222,9 @@
 </script>
 
 <svelte:head>
-	<title>Help Center - PeelJobs | Find Answers to Your Questions</title>
-	<meta name="description" content="Find answers to common questions about using PeelJobs. Learn how to search for jobs, create your profile, apply to positions, and more." />
-	<link rel="canonical" href="https://peeljobs.com/help/" />
+	<title>Help Center - InaWorks | Find Answers to Your Questions</title>
+	<meta name="description" content="Find answers to common questions about using InaWorks. Learn how to search for jobs, create your profile, apply to positions, and more." />
+	<link rel="canonical" href="https://inaworks.id/help/" />
 </svelte:head>
 
 <!-- Hero Section -->
@@ -400,7 +400,7 @@
 					<ArrowRight size={18} />
 				</a>
 				<a
-					href="mailto:support@peeljobs.com"
+					href="mailto:support@inaworks.id"
 					class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-medium rounded-full hover:bg-white/20 transition-colors border border-white/20"
 				>
 					Email Us

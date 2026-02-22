@@ -49,9 +49,9 @@ def get_messages(request):
     except Exception:
         profile_pic = request.user.photo
     if not user_pic:
-        user_pic = "https://cdn.peeljobs.com/dummy.jpg"
+        user_pic = "https://cdn.inaworks.id/dummy.jpg"
     if not profile_pic:
-        profile_pic = "https://cdn.peeljobs.com/dummy.jpg"
+        profile_pic = "https://cdn.inaworks.id/dummy.jpg"
     if user:
         messages = render_to_string(
             "candidate/messages.html",

@@ -52,7 +52,7 @@ def send_verification_email(user, request):
     # Send email via Celery task
     send_email.delay(
         mto=[user.email],
-        msubject="Verify your PeelJobs account",
+        msubject="Verify your InaWorks account",
         mbody=html_content
     )
 
@@ -79,7 +79,7 @@ def send_password_reset_email(user, request):
     # Send email via Celery task
     send_email.delay(
         mto=[user.email],
-        msubject="Reset your PeelJobs password",
+        msubject="Reset your InaWorks password",
         mbody=html_content
     )
 

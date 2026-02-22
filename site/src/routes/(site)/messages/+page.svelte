@@ -193,7 +193,7 @@
 </script>
 
 <svelte:head>
-	<title>Messages - PeelJobs</title>
+	<title>Messages - InaWorks</title>
 	<meta name="description" content="Chat with recruiters and hiring managers" />
 </svelte:head>
 

@@ -11,7 +11,7 @@ django.setup()
 def before_all(context):
     User.objects.filter(email="test@mp.com").delete()
     context.browser = Browser("firefox")
-    context.server_url = "http://test.peeljobs.com:8000"
+    context.server_url = "http://test.inaworks.id:8000"
 
 
 def after_all(context):

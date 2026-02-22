@@ -154,20 +154,20 @@ class JobListSerializer(serializers.ModelSerializer):
         max_sal = obj.max_salary
 
         if obj.salary_type == "Month":
-            min_sal = (min_sal * 12) / 100000  # Convert to lakhs
-            max_sal = (max_sal * 12) / 100000
+            min_sal = (min_sal * 12) / 1000000  # Convert to millions
+            max_sal = (max_sal * 12) / 1000000
         else:
-            min_sal = min_sal / 100000
-            max_sal = max_sal / 100000
+            min_sal = min_sal / 1000000
+            max_sal = max_sal / 1000000
 
         if min_sal == 0 and max_sal > 0:
-            return f"Up to ₹{max_sal:.1f} LPA"
+            return f"Up to Rp {max_sal:.1f} Million PA"
         elif min_sal > 0 and max_sal == 0:
-            return f"From ₹{min_sal:.1f} LPA"
+            return f"From Rp {min_sal:.1f} Million PA"
         elif min_sal == max_sal:
-            return f"₹{min_sal:.1f} LPA"
+            return f"Rp {min_sal:.1f} Million PA"
         else:
-            return f"₹{min_sal:.1f}-{max_sal:.1f} LPA"
+            return f"Rp {min_sal:.1f}-{max_sal:.1f} Million PA"
 
     def get_location_display(self, obj):
         """Get primary location for display"""

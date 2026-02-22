@@ -1,6 +1,6 @@
-# PeelJobs Frontend - SvelteKit + TypeScript
+# InaWorks Frontend - SvelteKit + TypeScript
 
-Modern, fast, and type-safe frontend for PeelJobs Job Seeker platform.
+Modern, fast, and type-safe frontend for InaWorks Job Seeker platform.
 
 ## 🚀 Quick Start
 
@@ -109,13 +109,13 @@ GOOGLE_LOGIN_HOST=http://localhost:8000
 
 **Terminal 1 - Django:**
 ```bash
-cd /home/ashwin/git-prjs/peeljobs/peeljobs
+cd /home/ashwin/git-prjs/inaworks/inaworks
 python manage.py runserver
 ```
 
 **Terminal 2 - Frontend:**
 ```bash
-cd /home/ashwin/git-prjs/peeljobs/peeljobs/ui
+cd /home/ashwin/git-prjs/inaworks/inaworks/ui
 pnpm dev
 ```
 
@@ -176,14 +176,14 @@ Run both servers concurrently:
 
 **Terminal 1:**
 ```bash
-cd /home/ashwin/git-prjs/peeljobs/peeljobs
+cd /home/ashwin/git-prjs/inaworks/inaworks
 python manage.py runserver
 # API: http://localhost:8000
 ```
 
 **Terminal 2:**
 ```bash
-cd /home/ashwin/git-prjs/peeljobs/peeljobs/ui
+cd /home/ashwin/git-prjs/inaworks/inaworks/ui
 pnpm dev
 # Frontend: http://localhost:5173
 ```

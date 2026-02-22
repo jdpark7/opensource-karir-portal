@@ -291,7 +291,7 @@
 </script>
 
 <svelte:head>
-	<title>{conversation?.recruiter.name || 'Conversation'} - Messages - PeelJobs</title>
+	<title>{conversation?.recruiter.name || 'Conversation'} - Messages - InaWorks</title>
 	<meta name="description" content="Chat with {conversation?.recruiter.name || 'recruiter'}" />
 </svelte:head>
 

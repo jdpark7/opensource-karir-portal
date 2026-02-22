@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block block_title %}
+    {% include "meta_data/jobs_unmeta.html" with title="MOOC Courses | InaWorks" %}
+{% endblock %}
+
+{% block base %}
+<div class="container main_content">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page_heading">MOOC Courses</h1>
+            <div class="search_section">
+                <form method="GET" action="{% url 'mooc:course_list' %}" class="form-inline">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search for courses..." value="{{ query|default:'' }}">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            {% for course in page_obj %}
+            <div class="job_listing_block">
+                <div class="job_listing_content">
+                    <h3 class="job_title"><a href="{{ course.url }}" target="_blank">{{ course.name }}</a></h3>
+                    <div class="company_name">
+                        <i class="fa fa-university"></i> {{ course.provider }} | <i class="fa fa-user"></i> {{ course.instructor }}
+                    </div>
+                    <div class="job_description">
+                        {{ course.description|truncatewords:30 }}
+                    </div>
+                    <div class="skills_section">
+                         <strong>Keywords:</strong> {{ course.keywords }}
+                         {% if course.skills %}
+                         <br>
+                         <strong>Skills:</strong> {{ course.skills }}
+                         {% endif %}
+                    </div>
+                    <div class="job_action">
+                         <a href="{{ course.url }}" target="_blank" class="btn btn-info btn-sm">View Course</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <div class="alert alert-info">No courses found matching your criteria.</div>
+            {% endfor %}
+
+            {% if page_obj.has_other_pages %}
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                {% if page_obj.has_previous %}
+                  <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Previous</a></li>
+                {% else %}
+                  <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                {% endif %}
+                {% for i in page_obj.paginator.page_range %}
+                  {% if page_obj.number == i %}
+                    <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                  {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}{% if query %}&q={{ query }}{% endif %}">{{ i }}</a></li>
+                  {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                  <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Next</a></li>
+                {% else %}
+                  <li class="page-item disabled"><span class="page-link">Next</span></li>
+                {% endif %}
+              </ul>
+            </nav>
+            {% endif %}
+        </div>
+        <div class="col-md-3">
+            <!-- Sidebar content could go here -->
+            <div class="card">
+                <div class="card-header">
+                    About MOOCs
+                </div>
+                <div class="card-body">
+                    <p>Massive Open Online Courses (MOOCs) are free online courses available for anyone to enroll. MOOCs provide an affordable and flexible way to learn new skills, advance your career and deliver quality educational experiences at scale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
