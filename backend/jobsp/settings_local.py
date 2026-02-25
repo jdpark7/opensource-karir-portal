@@ -151,4 +151,14 @@ COMPRESS_PRECOMPILERS = (
 # Disable real-time indexing for local development to avoid Elasticsearch dependency
 HAYSTACK_SIGNAL_PROCESSOR = "haystack.signals.BaseSignalProcessor"
 
+# Use simple database backing for search engine locally since elasticsearch isn't running
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
+
 print("Local development settings loaded")
+
+# Added to fix "The number of GET/POST parameters exceeded settings.DATA_UPLOAD_MAX_NUMBER_FIELDS."
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
