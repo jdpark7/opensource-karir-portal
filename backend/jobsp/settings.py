@@ -31,7 +31,7 @@ logging = "DEBUG"
 GIT_APP_ID = os.getenv("GITAPPID")
 GIT_APP_SECRET = os.getenv("GITAPPSECRET")
 
-ALLOWED_HOSTS = ["inaworks.id", "test.inaworks.id", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["inaworks.id", "test.inaworks.id", "api.inaworks.id", "kareer.inaworks.id", "localhost", "127.0.0.1"]
 
 # tw app
 tw_oauth_token_secret = os.getenv("twoauthtokensecret")
@@ -170,6 +170,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # SvelteKit default
     "http://localhost:5173",  # Vite default
     "http://localhost:5174",  # Recruiter UI
+    "https://inaworks.id",
+    "https://test.inaworks.id",
+    "https://api.inaworks.id",
+    "https://karier.inaworks.id",
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://\w+\.inaworks\.com$",
