@@ -1,4 +1,4 @@
-// import { API_BASE_URL } from "$lib/config/env";
+import { API_BASE_URL } from "$lib/config/env";
 
 import { redirect, error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';

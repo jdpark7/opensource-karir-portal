@@ -1,4 +1,3 @@
-// import { API_BASE_URL } from "$lib/config/env";
 
 /**
  * Job Preview Page - Server Load

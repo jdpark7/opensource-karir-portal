@@ -28,7 +28,7 @@ export const load: PageServerLoad = async ({ cookies, fetch, url }) => {
 	try {
 		// Fetch form metadata (countries, states, cities, skills, etc.)
 		// The fetch function here is enhanced by hooks.server.ts to add Authorization header
-		const apiUrl = '${API_BASE_URL}/recruiter/jobs/metadata/';
+		const apiUrl = `${API_BASE_URL}/recruiter/jobs/metadata/`;
 		const response = await fetch(apiUrl);
 
 		if (!response.ok) {
@@ -105,7 +105,7 @@ export const actions: Actions = {
 			console.log('Sending job data:', JSON.stringify(jobData, null, 2));
 
 			// Create job with status 'Draft' (default in API)
-			const response = await fetch('${API_BASE_URL}/recruiter/jobs/create/', {
+			const response = await fetch(`${API_BASE_URL}/recruiter/jobs/create/`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -167,7 +167,7 @@ export const actions: Actions = {
 			const jobData = extractJobDataFromForm(formData);
 
 			// Step 1: Create job (will be created as Draft by default)
-			const createResponse = await fetch('${API_BASE_URL}/recruiter/jobs/create/', {
+			const createResponse = await fetch(`${API_BASE_URL}/recruiter/jobs/create/`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'

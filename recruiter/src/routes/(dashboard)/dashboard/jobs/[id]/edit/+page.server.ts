@@ -30,7 +30,7 @@ export const load: PageServerLoad = async ({ params, cookies, fetch, url }) => {
 		// Fetch job details and form metadata in parallel
 		const [jobResponse, metadataResponse] = await Promise.all([
 			fetch(`${API_BASE_URL}/recruiter/jobs/${jobId}/`),
-			fetch('${API_BASE_URL}/recruiter/jobs/metadata/')
+			fetch(`${API_BASE_URL}/recruiter/jobs/metadata/`)
 		]);
 
 		// Handle job fetch errors

@@ -1,4 +1,3 @@
-import { API_BASE_URL } from "$lib/config/env";
 
 /**
  * Company Profile Page - Server Load
@@ -8,7 +7,7 @@ import { API_BASE_URL } from "$lib/config/env";
 
 import type { PageServerLoad, Actions } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
-// import { API_BASE_URL } from '$lib/config/env';
+import { API_BASE_URL } from '$lib/config/env';
 
 export const load: PageServerLoad = async ({ parent, fetch }) => {
 	// Get user data from parent layout

@@ -1,4 +1,3 @@
-// import { API_BASE_URL } from "$lib/config/env";
 
 /**
  * Team Member Detail Page - Server Load
@@ -7,7 +6,7 @@
 
 import type { PageServerLoad } from './$types';
 import { error, redirect } from '@sveltejs/kit';
-// import { API_BASE_URL } from '$lib/config/env';
+import { API_BASE_URL } from '$lib/config/env';
 
 export const load: PageServerLoad = async ({ params, parent, fetch }) => {
 	const memberId = params.id;
