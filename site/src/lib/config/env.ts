@@ -45,7 +45,7 @@ export function getApiBasePath(): string {
   if (typeof window !== 'undefined' && isDevelopment) {
     return '/api/v1';
   }
-  // In server-side code or production, use full URL
+  // In server-side code or production (since Vite proxy isn't active on remote Nginx), use full URL
   return API_BASE_URL;
 }
 

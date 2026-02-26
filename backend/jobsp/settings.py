@@ -176,7 +176,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://karier.inaworks.id",
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.inaworks\.com$",
+    r"^https://\w+\.inaworks\.id$",
 ]
 CORS_ALLOW_METHODS = list(default_methods)
 CORS_ALLOW_HEADERS = list(default_headers)
