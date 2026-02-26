@@ -63,6 +63,16 @@ export async function googleAuthCallback(
 }
 
 /**
+ * Login with email and password
+ */
+export async function loginWithEmail(email: string, password: string): Promise<AuthResponse> {
+	return ApiClient.post<AuthResponse>('/auth/login/', {
+		email,
+		password
+	}, true); // Skip auth - public endpoint
+}
+
+/**
  * Get current authenticated user
  */
 export async function getCurrentUser(): Promise<User> {

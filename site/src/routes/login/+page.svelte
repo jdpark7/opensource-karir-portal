@@ -3,11 +3,17 @@
 
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
   import { AlertCircle, Loader2, Briefcase, Shield, Zap } from '@lucide/svelte';
+  import { loginWithEmail } from '$lib/api/auth';
+  import { authStore } from '$lib/stores/auth';
 
   let isLoading = false;
+  let isEmailLoading = false;
   let loadingProvider = '';
   let error = '';
+  let email = '';
+  let password = '';
 
   onMount(() => {
     const urlError = $page.url.searchParams.get('error');
@@ -55,6 +61,36 @@
       error = err instanceof Error ? err.message : 'Failed to initiate login. Please try again.';
       isLoading = false;
       loadingProvider = '';
+    }
+  }
+
+  async function handleEmailLogin(e) {
+    e.preventDefault();
+    if (isLoading || isEmailLoading) return;
+    if (!email || !password) {
+      error = 'Please enter both email and password.';
+      return;
+    }
+
+    isEmailLoading = true;
+    error = '';
+
+    try {
+      const response = await loginWithEmail(email, password);
+      // Ensure user type is correct before proceeding
+      if (response.user && response.user.user_type === 'EM') {
+         throw new Error("This email is registered as an employer. Please use the employer login.");
+      }
+      authStore.login(response.user, response.access, response.refresh);
+      
+      if (response.requires_profile_completion) {
+        goto(response.redirect_to || '/profile/complete/');
+      } else {
+        goto(response.redirect_to || '/');
+      }
+    } catch (err) {
+      error = err instanceof Error ? err.message : 'Invalid email or password. Please try again.';
+      isEmailLoading = false;
     }
   }
 
@@ -155,6 +191,57 @@
             </div>
           </div>
         {/if}
+
+        <!-- Email/Password Login Form -->
+        <form onsubmit={handleEmailLogin} class="space-y-4 mb-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-black mb-1">Email</label>
+            <input
+              type="email"
+              id="email"
+              bind:value={email}
+              required
+              class="w-full h-12 px-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-600 transition-colors text-black"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label for="password" class="block text-sm font-medium text-black">Password</label>
+              <a href="/forgot-password/" class="text-xs font-semibold text-primary-600 hover:text-primary-700 hover:underline">
+                Forgot password?
+              </a>
+            </div>
+            <input
+              type="password"
+              id="password"
+              bind:value={password}
+              required
+              class="w-full h-12 px-4 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-600 transition-colors text-black"
+              placeholder="••••••••"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={isEmailLoading || isLoading}
+            class="w-full flex items-center justify-center gap-2 h-12 px-5 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {#if isEmailLoading}
+              <Loader2 size={20} class="animate-spin" />
+            {/if}
+            <span>Sign in</span>
+          </button>
+        </form>
+
+        <!-- Divider for Social Login -->
+        <div class="my-6 relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-border"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <span class="px-4 bg-white text-sm text-muted">or continue with</span>
+          </div>
+        </div>
 
         <!-- Social Login Buttons -->
         <div class="space-y-3">

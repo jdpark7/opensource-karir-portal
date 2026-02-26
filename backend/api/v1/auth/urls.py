@@ -10,6 +10,7 @@ app_name = "auth"
 
 urlpatterns = [
     # Registration & Email Verification
+    path("login/", views.login, name="login"),
     path("register/", views.register, name="register"),
     path("verify-email/", views.verify_email, name="verify-email"),
     path("resend-verification/", views.resend_verification, name="resend-verification"),

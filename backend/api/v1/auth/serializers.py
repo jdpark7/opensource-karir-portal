@@ -2,6 +2,7 @@
 Authentication Serializers for Job Seekers
 """
 from rest_framework import serializers
+from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.utils.crypto import get_random_string
@@ -143,6 +144,42 @@ class ResetPasswordSerializer(serializers.Serializer):
             validate_password(data['password'])
         except DjangoValidationError as e:
             raise serializers.ValidationError({"password": list(e.messages)})
+
+        return data
+
+
+class LoginSerializer(serializers.Serializer):
+    """Login serializer for Job Seekers"""
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+    remember_me = serializers.BooleanField(default=False)
+
+    def validate(self, data):
+        """Authenticate user"""
+        email = data.get('email', '').lower()
+        password = data.get('password')
+
+        if email and password:
+            user = authenticate(username=email, password=password)
+
+            if user:
+                # Check if user is job seeker type
+                if user.user_type != 'JS':
+                    raise serializers.ValidationError(
+                        "This email is registered as an employer. Please use the employer login."
+                    )
+
+                # Check if email is verified
+                if not user.is_active:
+                    raise serializers.ValidationError(
+                        "Please verify your email address first. Check your inbox for the verification link."
+                    )
+
+                data['user'] = user
+            else:
+                raise serializers.ValidationError("Invalid email or password")
+        else:
+            raise serializers.ValidationError("Must provide email and password")
 
         return data
 

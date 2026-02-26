@@ -21,6 +21,7 @@ from .serializers import (
     GoogleUrlRequestSerializer,
     ChangePasswordSerializer,
     RegisterSerializer,
+    LoginSerializer,
     VerifyEmailSerializer,
     ResendVerificationSerializer,
     ForgotPasswordSerializer,
@@ -82,6 +83,49 @@ def send_password_reset_email(user, request):
         msubject="Reset your InaWorks password",
         mbody=html_content
     )
+
+
+@extend_schema(
+    tags=["Authentication"],
+    summary="Login",
+    description="Authenticate Job Seeker user",
+    request=LoginSerializer,
+)
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def login(request):
+    """
+    Login for Job Seeker users
+
+    Returns JWT tokens in response body ONLY
+    SvelteKit frontend will store these in localStorage
+    """
+    serializer = LoginSerializer(data=request.data)
+
+    if serializer.is_valid():
+        user = serializer.validated_data['user']
+
+        # Generate tokens
+        tokens = get_tokens_for_user(user)
+
+        # Get user data
+        user_serializer = UserSerializer(user)
+
+        # Determine post-auth flow for Job Seekers
+        requires_profile_completion = user.profile_completion_percentage < 50
+        redirect_to = "/"  # Redirect to home page after successful login
+
+        response_data = {
+            "user": user_serializer.data,
+            "access": tokens["access"],
+            "refresh": tokens["refresh"],
+            "requires_profile_completion": requires_profile_completion,
+            "redirect_to": redirect_to,
+        }
+
+        return Response(response_data, status=status.HTTP_200_OK)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @extend_schema(
