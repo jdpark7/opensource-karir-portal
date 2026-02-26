@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from .models import Course
+from peeldb.models import Company
 from django.core.paginator import Paginator
 
 def course_list(request):
@@ -8,7 +9,8 @@ def course_list(request):
     provider = request.GET.get('provider', '').strip()
 
     # Get distinct providers for the dropdown
-    providers = Course.objects.filter(status='Active').exclude(provider__isnull=True).exclude(provider__exact='').values_list('provider', flat=True).distinct().order_by('provider')
+    provider_ids = Course.objects.filter(status='Active').exclude(provider__isnull=True).values_list('provider', flat=True).distinct()
+    providers = Company.objects.filter(id__in=provider_ids).order_by('name')
 
     courses = Course.objects.filter(status='Active')
     

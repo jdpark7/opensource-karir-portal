@@ -65,6 +65,7 @@ class Keyword(models.Model):
 USER_TYPE = (
     ("JS", "Job Seeker"),
     ("EM", "Employer"),  # Simplified from RR, RA, AA, AR
+    ("ED", "Educator"),
 )
 
 GENDER_TYPES = (
@@ -85,6 +86,7 @@ DEGREE_TYPES = (
 COMPANY_TYPES = (
     ("Consultant", "consultant"),
     ("Company", "company"),
+    ("Education", "education"),
 )
 
 
@@ -314,6 +316,9 @@ class Company(models.Model):
     meta_description = models.TextField(default="")
     campaign_icon = models.CharField(max_length=3000, null=True)
     created_from = models.CharField(max_length=200, default="")
+
+    def __str__(self):
+        return self.name
 
     def is_company(self):
         if str(self.company_type) == "Company":
@@ -697,6 +702,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     def is_recruiter(self):
         """Check if user is an employer (recruiter/company user)"""
         return str(self.user_type) == "EM"
+
+    @property
+    def is_educator(self):
+        """Check if user is an educator"""
+        return str(self.user_type) == "ED"
 
 
     @property

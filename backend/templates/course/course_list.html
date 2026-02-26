@@ -45,7 +45,7 @@
                                             style="max-width: 250px; background-color: #f8f9fa; border-right: 1px solid #dee2e6 !important;">
                                             <option value="">All Providers</option>
                                             {% for prov in providers %}
-                                            <option value="{{ prov }}" {% if selected_provider == prov %}selected{% endif %}>{{ prov }}</option>
+                                            <option value="{{ prov.id }}" {% if selected_provider == prov.id|stringformat:"s" %}selected{% endif %}>{{ prov.name }}</option>
                                             {% endfor %}
                                         </select>
                                         <input type="text" name="q" class="form-control border-0 px-3 py-2"

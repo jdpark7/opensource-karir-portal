@@ -817,9 +817,9 @@ def job_skills(request, skill, **kwargs):
             meta_title, meta_description = get_404_meta("skill_404", {"skill": search})
         else:
             search = [skill]
-            status = 404
+            status = 200
             meta_title = meta_description = ""
-        reason = "Only valid Skills/Qualifications names are accepted"
+        reason = "No jobs found for the selected skill or qualification."
         template = "404.html"
         return render(
             request,
@@ -831,7 +831,7 @@ def job_skills(request, skill, **kwargs):
                 "job_search": True,
                 "reason": reason,
                 "searched_skills": search,
-                "data_empty": status != 200,
+                "data_empty": True,
             },
             status=status,
         )

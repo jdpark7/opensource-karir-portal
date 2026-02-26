@@ -19,6 +19,7 @@ from peeldb.models import (
     User,
     UserEmail,
 )
+from course.models import Course
 from pjob.views import months
 
 
@@ -771,6 +772,8 @@ def index(request):
             "today_resume_applied_applicants": today_resume_applied_applicants,
             "today_resume_profile_applicants": today_resume_profile_applicants,
             "months": months,
+            # Courses provided by the logged-in user's company (if any)
+            "company_courses": Course.objects.filter(provider=request.user.company)
         }
         return render(
             request,

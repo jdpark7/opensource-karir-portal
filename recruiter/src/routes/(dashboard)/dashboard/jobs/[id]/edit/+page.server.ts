@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "$lib/config/env";
+
 /**
  * SSR Load Function and Form Actions for Job Edit Page
  *
@@ -27,8 +29,8 @@ export const load: PageServerLoad = async ({ params, cookies, fetch, url }) => {
 	try {
 		// Fetch job details and form metadata in parallel
 		const [jobResponse, metadataResponse] = await Promise.all([
-			fetch(`http://localhost:8000/api/v1/recruiter/jobs/${jobId}/`),
-			fetch('http://localhost:8000/api/v1/recruiter/jobs/metadata/')
+			fetch(`${API_BASE_URL}/recruiter/jobs/${jobId}/`),
+			fetch('${API_BASE_URL}/recruiter/jobs/metadata/')
 		]);
 
 		// Handle job fetch errors
@@ -95,7 +97,7 @@ export const actions: Actions = {
 			console.log('Updating job data:', JSON.stringify(jobData, null, 2));
 
 			// Update job
-			const response = await fetch(`http://localhost:8000/api/v1/recruiter/jobs/${jobId}/update/`, {
+			const response = await fetch(`${API_BASE_URL}/recruiter/jobs/${jobId}/update/`, {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
@@ -157,7 +159,7 @@ export const actions: Actions = {
 			const jobData = extractJobDataFromForm(formData);
 
 			// Step 1: Update job
-			const updateResponse = await fetch(`http://localhost:8000/api/v1/recruiter/jobs/${jobId}/update/`, {
+			const updateResponse = await fetch(`${API_BASE_URL}/recruiter/jobs/${jobId}/update/`, {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
@@ -178,7 +180,7 @@ export const actions: Actions = {
 			// Step 2: Publish the job if it's not already published
 			if (updateResult.job.status !== 'Live') {
 				const publishResponse = await fetch(
-					`http://localhost:8000/api/v1/recruiter/jobs/${jobId}/publish/`,
+					`${API_BASE_URL}/recruiter/jobs/${jobId}/publish/`,
 					{
 						method: 'POST',
 						headers: {

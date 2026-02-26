@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "$lib/config/env";
+
 /**
  * Inactive Jobs Page - Server Load
  * Shows Disabled and Expired jobs in a dedicated view
@@ -41,7 +43,7 @@ export const load: PageServerLoad = async ({ fetch, url, cookies }) => {
 		}
 
 		// Make API request - fetch will use hooks.server.ts to add Authorization header
-		const apiUrl = `http://localhost:8000/api/v1/recruiter/jobs/?${params.toString()}`;
+		const apiUrl = `${API_BASE_URL}/recruiter/jobs/?${params.toString()}`;
 		const response = await fetch(apiUrl);
 
 		if (!response.ok) {
@@ -110,7 +112,7 @@ export const actions: Actions = {
 		}
 
 		try {
-			const response = await fetch(`http://localhost:8000/api/v1/recruiter/jobs/${jobId}/update/`, {
+			const response = await fetch(`${API_BASE_URL}/recruiter/jobs/${jobId}/update/`, {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
@@ -147,7 +149,7 @@ export const actions: Actions = {
 
 		try {
 			const response = await fetch(
-				`http://localhost:8000/api/v1/recruiter/jobs/${jobId}/delete/?force=true`,
+				`${API_BASE_URL}/recruiter/jobs/${jobId}/delete/?force=true`,
 				{
 					method: 'DELETE'
 				}
