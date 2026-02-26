@@ -79,30 +79,30 @@ LOGGING = {
 GIT_BRANCH = "master"
 UWSGI_FILE_NAME = "jobs_uwsgi.ini"
 
-AWS_STORAGE_BUCKET_NAME = AWS_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
-AWS_DEFAULT_ACL = "public-read"
-S3_DOMAIN = AWS_S3_CUSTOM_DOMAIN = str(AWS_BUCKET_NAME) + ".s3.amazonaws.com"
+# AWS_STORAGE_BUCKET_NAME = AWS_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+# AWS_DEFAULT_ACL = "public-read"
+# S3_DOMAIN = AWS_S3_CUSTOM_DOMAIN = str(AWS_BUCKET_NAME) + ".s3.amazonaws.com"
 
-LOGO = "https://%s/logo.png" % (S3_DOMAIN)
+# LOGO = "https://%s/logo.png" % (S3_DOMAIN)
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-DEFAULT_S3_PATH = "media"
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-STATIC_S3_PATH = "static"
-COMPRESS_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# DEFAULT_S3_PATH = "media"
+# STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# STATIC_S3_PATH = "static"
+# COMPRESS_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-AWS_HEADERS = {
-    "Expires": "Sun, 15 June 2020 20:00:00 GMT",
-    "Cache-Control": "max-age=16400000",
-    "public-read": True,
-}
+# AWS_HEADERS = {
+#     "Expires": "Sun, 15 June 2020 20:00:00 GMT",
+#     "Cache-Control": "max-age=16400000",
+#     "public-read": True,
+# }
 
-AWS_IS_GZIPPED = True
-AWS_ENABLED = True
-AWS_S3_SECURE_URLS = True
+# AWS_IS_GZIPPED = True
+# AWS_ENABLED = True
+# AWS_S3_SECURE_URLS = True
 
-MEDIA_ROOT = "/%s/" % DEFAULT_S3_PATH
-MEDIA_URL = "//%s/%s/" % (S3_DOMAIN, DEFAULT_S3_PATH)
-STATIC_ROOT = "/%s/" % STATIC_S3_PATH
-STATIC_URL = "https://%s/" % (S3_DOMAIN)
-COMPRESS_URL = STATIC_URL
+# MEDIA_ROOT = "/%s/" % DEFAULT_S3_PATH
+# MEDIA_URL = "//%s/%s/" % (S3_DOMAIN, DEFAULT_S3_PATH)
+# STATIC_ROOT = "/%s/" % STATIC_S3_PATH
+# STATIC_URL = "https://%s/" % (S3_DOMAIN)
+# COMPRESS_URL = STATIC_URL
